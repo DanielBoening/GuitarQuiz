@@ -1,0 +1,6 @@
+bin/AndroidManifest.xml
+bin
+gen
+bin/AndroidManifest.xml
+bin/classes.dex
+.classpath
