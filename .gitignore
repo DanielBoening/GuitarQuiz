@@ -4,3 +4,7 @@ gen
 bin/AndroidManifest.xml
 bin/classes.dex
 .classpath
+.settings/org.eclipse.jdt.core.prefs
+project.properties
+project.properties
+project.properties
