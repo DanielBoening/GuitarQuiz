@@ -1,3 +1,4 @@
+package de.GuitarQuiz.Classes;
 
 public class Chord {
 	
