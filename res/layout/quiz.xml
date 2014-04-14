@@ -17,9 +17,53 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/RelativeLayout2"
-        android:layout_marginTop="21dp"
         android:layout_marginLeft="30dp"
-		android:layout_marginRight="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginTop="21dp"
         android:src="@drawable/chordpattern" />
+
+    <ImageView
+        android:id="@+id/quiz_iv1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/imageView1"
+        android:layout_alignTop="@+id/imageView1"
+        android:layout_marginLeft="26dp"
+        android:src="@drawable/o" />
+
+    <ImageView
+        android:id="@+id/quiz_iv6"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/quiz_iv1"
+        android:layout_below="@+id/quiz_iv1"
+        android:src="@drawable/o" />
+
+    <ImageView
+        android:id="@+id/quiz_iv2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/quiz_iv6"
+        android:layout_marginLeft="16dp"
+        android:layout_toRightOf="@+id/quiz_iv1"
+        android:src="@drawable/o" />
+
+    <ImageView
+        android:id="@+id/quiz_iv8"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/quiz_iv6"
+        android:layout_marginLeft="14dp"
+        android:layout_toRightOf="@+id/quiz_iv2"
+        android:src="@drawable/o" />
+
+    <ImageView
+        android:id="@+id/quiz_iv12"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/quiz_iv8"
+        android:layout_marginTop="21dp"
+        android:layout_toLeftOf="@+id/quiz_iv8"
+        android:src="@drawable/o" />
 
 </RelativeLayout>
