@@ -3,6 +3,7 @@ import java.util.ArrayList;
 
 import com.MusikMonksSolution.guitarquiz.R;
 
+import de.GuitarQuiz.Classes.Chord;
 import android.app.Activity;
 import android.os.Bundle;
 
@@ -21,6 +22,10 @@ public class Quiz extends Activity{
 		setContentView(R.layout.quiz);
 		
 	}
+	protected void createChord(String name,int[] fingers, int[] os, int[] xs){
+		Chord dummy = new Chord(name,fingers,os,xs);
+	}
+	
+}
 
 		
-}

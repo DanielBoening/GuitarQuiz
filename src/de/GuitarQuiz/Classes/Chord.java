@@ -3,7 +3,7 @@ package de.GuitarQuiz.Classes;
 public class Chord {
 	
 	private String Name;
-	private int[] FingerPoints = new int [30];
+	private int[] FingerPoints = new int [6];
 	private int[] XStrings = new int [6];
 	private int[] OStrings = new int [6];
 	
