@@ -13,7 +13,7 @@
     </RelativeLayout>
 
     <ImageView
-        android:id="@+id/imageView1"
+        android:id="@+id/ChordPattern"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/RelativeLayout2"
@@ -23,46 +23,12 @@
         android:src="@drawable/chordpattern" />
 
     <ImageView
-        android:id="@+id/quiz_iv8"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignTop="@+id/quiz_iv6"
-        android:layout_marginLeft="14dp"
-        android:layout_toRightOf="@+id/quiz_iv2"
-        android:src="@drawable/finger1" />
-
-    <ImageView
-        android:id="@+id/quiz_iv1"
+        android:id="@+id/quiz_finger1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignLeft="@+id/imageView1"
         android:layout_below="@+id/RelativeLayout2"
         android:layout_marginLeft="22dp"
-        android:src="@drawable/finger1" />
-
-    <ImageView
-        android:id="@+id/quiz_iv6"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/quiz_iv1"
-        android:layout_toLeftOf="@+id/quiz_iv2"
-        android:src="@drawable/finger1" />
-
-    <ImageView
-        android:id="@+id/imageView2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/quiz_iv2"
-        android:layout_below="@+id/quiz_iv6"
-        android:src="@drawable/finger1" />
-
-    <ImageView
-        android:id="@+id/quiz_iv2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_above="@+id/quiz_iv6"
-        android:layout_marginLeft="16dp"
-        android:layout_toRightOf="@+id/quiz_iv1"
         android:src="@drawable/finger1" />
 
 </RelativeLayout>

@@ -4,8 +4,13 @@ import java.util.ArrayList;
 import com.MusikMonksSolution.guitarquiz.R;
 
 import de.GuitarQuiz.Classes.Chord;
+import de.GuitarQuiz.Classes.ChordCreator;
+import de.GuitarQuiz.Classes.Tuple;
 import android.app.Activity;
 import android.os.Bundle;
+import android.support.v4.view.ViewPager.LayoutParams;
+import android.widget.ImageView;
+import android.widget.RelativeLayout;
 
 
 public class Quiz extends Activity{
@@ -23,8 +28,12 @@ public class Quiz extends Activity{
 		// TODO Auto-generated method stub
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.quiz);
+		creatChords();
+		ChordCreator creator = new ChordCreator(this);
+		creator.setChord(chords.get(0));
 		
 	}
+
 	protected void creatChords(){
 		addChord(names[0],fingers[0],isPlayed[0]);
 		addChord(names[1],fingers[1],isPlayed[1]);
@@ -33,6 +42,7 @@ public class Quiz extends Activity{
 	protected void addChord(String name,int[] fingers, int[] isPlayed){
 		Chord dummy = new Chord(name,fingers,isPlayed);
 		chords.add(dummy);
+		
 	}
 	
 }
