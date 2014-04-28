@@ -30,7 +30,7 @@ public class Quiz extends Activity{
 		setContentView(R.layout.quiz);
 		creatChords();
 		ChordCreator creator = new ChordCreator(this);
-		creator.setChord(chords.get(0));
+		//creator.setChord(chords.get(0));
 		
 	}
 

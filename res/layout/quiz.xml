@@ -2,8 +2,7 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:id="@+id/RelativeLayout1"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="#8B4513" >
+    android:layout_height="match_parent" >
 
     <RelativeLayout
         android:id="@+id/RelativeLayout2"
@@ -13,23 +12,13 @@
     </RelativeLayout>
 
     <ImageView
-        android:id="@+id/ChordPattern"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/RelativeLayout2"
-        android:layout_marginLeft="30dp"
-        android:layout_marginRight="10dp"
-        android:layout_marginTop="21dp"
-        android:src="@drawable/chordpattern" />
-
-    <ImageView
         android:id="@+id/quiz_finger1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignLeft="@+id/imageView1"
         android:layout_below="@+id/RelativeLayout2"
         android:layout_marginLeft="22dp"
-        android:src="@drawable/finger1" />
+        android:src="@drawable/finger" />
 
     <LinearLayout
         android:layout_width="wrap_content"
@@ -37,7 +26,8 @@
         android:layout_alignParentBottom="true"
         android:layout_alignParentLeft="true"
         android:layout_alignParentRight="true"
-        android:orientation="vertical" >
+        android:orientation="vertical"
+        android:layout_margin = "20dp" >
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -47,43 +37,59 @@
                 android:id="@+id/quiz_b1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_weight="1"
                 android:background="@drawable/answerbutton"
                 android:text="Button"
-                android:layout_margin="10dp"
-                android:layout_weight="1" />
+                android:scaleY="0.8"
+                android:layout_marginRight="5dp"
+                />
+
             <Button
                 android:id="@+id/quiz_b2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_weight="1"
                 android:background="@drawable/answerbutton"
-                android:text="Button"
-                android:layout_weight="1" />
-
+                android:scaleY="0.8"
+                android:layout_marginLeft="5dp"
+                android:text="Button" />
+            	
         </LinearLayout>
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_weight="676.37" >
+        >
 
             <Button
                 android:id="@+id/quiz_b3"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_weight="1"
                 android:background="@drawable/answerbutton"
                 android:text="Button"
-                android:layout_weight="1" />
+                android:layout_marginRight="5dp"
+                android:scaleY="0.8" />
 
             <Button
                 android:id="@+id/quiz_b4"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_weight="1"
                 android:background="@drawable/answerbutton"
                 android:text="Button"
-                android:layout_weight="1" />
-
+                android:scaleY="0.8"
+                android:layout_marginL="5dp" />
         </LinearLayout>
-
     </LinearLayout>
+
+    <ImageView
+        android:id="@+id/ChordPattern"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/quiz_finger1"
+        android:layout_centerHorizontal="true"
+        android:src="@drawable/chordpattern" />
+
 
 </RelativeLayout>
