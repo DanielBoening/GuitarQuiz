@@ -23,15 +23,23 @@ public class Quiz extends Activity{
 //		System.out.println("Hallo");
 //	}
 	
+	
+	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		// TODO Auto-generated method stub
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.quiz);
 		creatChords();
+		
+	}
+
+	@Override
+	protected void onResume() {
 		ChordCreator creator = new ChordCreator(this);
 		creator.setChord(chords.get(0));
-		
+		// TODO Auto-generated method stub
+		super.onResume();
 	}
 
 	protected void creatChords(){
