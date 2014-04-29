@@ -11,23 +11,13 @@
         android:orientation="vertical" >
     </RelativeLayout>
 
-    <ImageView
-        android:id="@+id/quiz_finger1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/imageView1"
-        android:layout_below="@+id/RelativeLayout2"
-        android:layout_marginLeft="22dp"
-        android:src="@drawable/finger" />
-
     <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:layout_alignParentLeft="true"
         android:layout_alignParentRight="true"
-        android:orientation="vertical"
-        android:layout_margin = "20dp" >
+        android:orientation="vertical" >
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -35,61 +25,77 @@
 
             <Button
                 android:id="@+id/quiz_b1"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_width="120dp"
+                android:layout_height="80dp"
+                android:layout_marginRight="1dp"
+                android:layout_marginBottom="2dp"
+                android:layout_marginLeft="5dp"
                 android:layout_weight="1"
                 android:background="@drawable/answerbutton"
-                android:text="Button"
-                android:scaleY="0.8"
-                android:layout_marginRight="5dp"
-                />
-
+                android:text="1" />
+            
             <Button
                 android:id="@+id/quiz_b2"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_width="120dp"
+                android:layout_height="80dp"
+                android:layout_marginLeft="1dp"
+                android:layout_marginBottom="2dp"
+                android:layout_marginRight="5dp"
                 android:layout_weight="1"
                 android:background="@drawable/answerbutton"
-                android:scaleY="0.8"
-                android:layout_marginLeft="5dp"
-                android:text="Button" />
-            	
+                android:text="2" />
+
         </LinearLayout>
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-        >
+            >
 
             <Button
                 android:id="@+id/quiz_b3"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_width="120dp"
+                android:layout_height="80dp"
+                android:layout_marginRight="1dp"
+                android:layout_marginTop="2dp"
+                android:layout_marginLeft="5dp"
+                android:layout_marginBottom="5dp"
                 android:layout_weight="1"
                 android:background="@drawable/answerbutton"
-                android:text="Button"
-                android:layout_marginRight="5dp"
-                android:scaleY="0.8" />
+                android:text="3" />
 
             <Button
                 android:id="@+id/quiz_b4"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_width="120dp"
+                android:layout_height="80dp"
+                android:layout_marginLeft="1dp"
+                android:layout_marginTop="2dp"
+                android:layout_marginRight="5dp"
+                android:layout_marginBottom="5dp"
                 android:layout_weight="1"
                 android:background="@drawable/answerbutton"
-                android:text="Button"
-                android:scaleY="0.8"
-                android:layout_marginL="5dp" />
+                android:text="4" />
         </LinearLayout>
+
     </LinearLayout>
 
     <ImageView
         android:id="@+id/ChordPattern"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="285dp"
+        android:layout_height="135dp"
         android:layout_below="@+id/quiz_finger1"
         android:layout_centerHorizontal="true"
-        android:src="@drawable/chordpattern" />
+        android:layout_marginTop="30dp"
+        android:src="@drawable/chord" />
 
+    <ImageView
+        android:id="@+id/quiz_finger1"
+        android:layout_width="23dp"
+        android:layout_height="23dp"
+        android:layout_alignLeft="@+id/ChordPattern"
+        android:layout_below="@+id/RelativeLayout2"
+        android:layout_marginLeft="23dp"
+        android:layout_marginTop="44dp"
+        android:src="@drawable/finger" />
 
 </RelativeLayout>

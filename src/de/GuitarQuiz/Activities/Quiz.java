@@ -37,14 +37,11 @@ public class Quiz extends Activity{
 	@Override
 	protected void onResume() {
 		ChordCreator creator = new ChordCreator(this);
-<<<<<<< HEAD
 		//creator.setChord(chords.get(0));
 		
-=======
 		creator.setChord(chords.get(0));
 		// TODO Auto-generated method stub
 		super.onResume();
->>>>>>> d78f851d91440b6ebb3cc20a2a4dbbd5afe076cf
 	}
 
 	protected void creatChords(){
