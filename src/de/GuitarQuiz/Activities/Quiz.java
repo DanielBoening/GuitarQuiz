@@ -39,7 +39,7 @@ public class Quiz extends Activity{
 		ChordCreator creator = new ChordCreator(this);
 		creator.setChord(chords.get(0));
 		// TODO Auto-generated method stub
-		super.onResume();
+		super.onResume(); 
 	}
 
 	protected void creatChords(){

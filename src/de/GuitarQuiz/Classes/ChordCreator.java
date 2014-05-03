@@ -29,15 +29,17 @@ public class ChordCreator {
 		ImageView chordPattern = (ImageView) activity.findViewById(R.id.ChordPattern);
 		RelativeLayout.LayoutParams chordParam = (RelativeLayout.LayoutParams) chordPattern.getLayoutParams();
 		IMG_START = new Tuple(chordParam.leftMargin,chordParam.topMargin);
-		IMG_END = new Tuple(chordParam.leftMargin+chordPattern.getWidth(),chordParam.topMargin+chordPattern.getHeight());
+		int imageWidth = chordPattern.getWidth();
+//		IMG_END = new Tuple(chordParam.leftMargin+chordPattern.getWidth(),chordParam.topMargin+chordPattern.getHeight());
+		IMG_END = new Tuple(407,290);
 
 		ImageView finger1 = (ImageView) activity.findViewById(R.id.quiz_finger1);
 		RelativeLayout.LayoutParams finger1Params= (RelativeLayout.LayoutParams) finger1.getLayoutParams();
-		Tuple finger1Position = getImagePosition(13);
+		Tuple finger1Position = getImagePosition(1);
 		finger1Params.setMargins(finger1Position.getX(), finger1Position.getY(), 0, 0);
 		Helper.log("IMG_START: "+IMG_START);
 		Helper.log("IMG_END: "+IMG_END);
-		Helper.log("Bildbreite: "+chordPattern.getWidth());
+		Helper.log("Bildbreite: "+chordPattern.getWidth() + " oder "+ imageWidth);
 		Helper.log("Bildhöhe: "+chordPattern.getHeight());
 		
 		
