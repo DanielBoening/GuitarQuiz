@@ -37,6 +37,8 @@ public class Quiz extends Activity{
 	@Override
 	protected void onResume() {
 		ChordCreator creator = new ChordCreator(this);
+		//creator.setChord(chords.get(0));
+		
 		creator.setChord(chords.get(0));
 		// TODO Auto-generated method stub
 		super.onResume(); 
