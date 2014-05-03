@@ -83,7 +83,6 @@
         android:id="@+id/ChordPattern"
         android:layout_width="285dp"
         android:layout_height="135dp"
-        android:layout_below="@+id/quiz_finger1"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="30dp"
         android:src="@drawable/chord" />
@@ -92,7 +91,6 @@
         android:id="@+id/quiz_finger1"
         android:layout_width="23dp"
         android:layout_height="23dp"
-        android:layout_alignLeft="@+id/ChordPattern"
         android:layout_below="@+id/RelativeLayout2"
         android:layout_marginLeft="23dp"
         android:layout_marginTop="44dp"

@@ -13,8 +13,8 @@ public class ChordCreator {
 	Activity activity;
 	Tuple IMG_START;
 	Tuple IMG_END;
-	static Tuple BORDER_X = new Tuple(65,20); //Border Links und Rechts, wo kein Bild platziert werden darf
-	static Tuple BORDER_Y = new Tuple(10,20); //Border Oben und Unten, wo kein Bild platziert werden darf
+	static Tuple BORDER_X = new Tuple(90,-20); //Border Links und Rechts, wo kein Bild platziert werden darf
+	static Tuple BORDER_Y = new Tuple(30,20); //Border Oben und Unten, wo kein Bild platziert werden darf
 
 	
 	
@@ -35,7 +35,7 @@ public class ChordCreator {
 
 		ImageView finger1 = (ImageView) activity.findViewById(R.id.quiz_finger1);
 		RelativeLayout.LayoutParams finger1Params= (RelativeLayout.LayoutParams) finger1.getLayoutParams();
-		Tuple finger1Position = getImagePosition(1);
+		Tuple finger1Position = getImagePosition(28);
 		finger1Params.setMargins(finger1Position.getX(), finger1Position.getY(), 0, 0);
 		Helper.log("IMG_START: "+IMG_START);
 		Helper.log("IMG_END: "+IMG_END);
