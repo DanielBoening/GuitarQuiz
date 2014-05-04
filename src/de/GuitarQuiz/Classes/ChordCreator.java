@@ -1,6 +1,7 @@
 package de.GuitarQuiz.Classes;
 
 import android.app.Activity;
+import android.view.View;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 
@@ -14,7 +15,7 @@ public class ChordCreator {
 	Tuple IMG_START;
 	Tuple IMG_END;
 	static Tuple BORDER_X = new Tuple(90,-20); //Border Links und Rechts, wo kein Bild platziert werden darf
-	static Tuple BORDER_Y = new Tuple(30,20); //Border Oben und Unten, wo kein Bild platziert werden darf
+	static Tuple BORDER_Y = new Tuple(24,20); //Border Oben und Unten, wo kein Bild platziert werden darf
 
 	
 	
@@ -33,19 +34,36 @@ public class ChordCreator {
 //		IMG_END = new Tuple(chordParam.leftMargin+chordPattern.getWidth(),chordParam.topMargin+chordPattern.getHeight());
 		IMG_END = new Tuple(407,290);
 
-		ImageView finger1 = (ImageView) activity.findViewById(R.id.quiz_finger1);
-		RelativeLayout.LayoutParams finger1Params= (RelativeLayout.LayoutParams) finger1.getLayoutParams();
-		Tuple finger1Position = getImagePosition(28);
-		finger1Params.setMargins(finger1Position.getX(), finger1Position.getY(), 0, 0);
-		Helper.log("IMG_START: "+IMG_START);
-		Helper.log("IMG_END: "+IMG_END);
-		Helper.log("Bildbreite: "+chordPattern.getWidth() + " oder "+ imageWidth);
-		Helper.log("Bildhöhe: "+chordPattern.getHeight());
+		
+		placeImage(R.id.quiz_finger1, chord.getFingerPoints()[0]);
+		placeImage(R.id.quiz_finger2, chord.getFingerPoints()[1]);
+		placeImage(R.id.quiz_finger3, chord.getFingerPoints()[2]);
+		placeImage(R.id.quiz_finger4, chord.getFingerPoints()[3]);
+//		ImageView finger1 = (ImageView) activity.findViewById(R.id.quiz_finger1);
+//		RelativeLayout.LayoutParams finger1Params= (RelativeLayout.LayoutParams) finger1.getLayoutParams();
+//		Tuple finger1Position = getImagePosition(28);
+//		finger1Params.setMargins(finger1Position.getX(), finger1Position.getY(), 0, 0);
+//		Helper.log("IMG_START: "+IMG_START);
+//		Helper.log("IMG_END: "+IMG_END);
+//		Helper.log("Bildbreite: "+chordPattern.getWidth() + " oder "+ imageWidth);
+//		Helper.log("Bildhöhe: "+chordPattern.getHeight());
 		
 		
 	}
 	
 	
+	private void placeImage(int imgID, int i) {
+		ImageView finger1 = (ImageView) activity.findViewById(imgID);
+		finger1.setVisibility(View.VISIBLE);
+		RelativeLayout.LayoutParams finger1Params= (RelativeLayout.LayoutParams) finger1.getLayoutParams();
+		Tuple finger1Position = getImagePosition(i);
+		finger1Params.setMargins(finger1Position.getX(), finger1Position.getY(), 0, 0);
+		if(i == 0){
+			finger1.setVisibility(View.INVISIBLE);
+		}
+	}
+
+
 	public Tuple getImagePosition(int number){
 		
 		return new Tuple(getXPosition(number), getYPosition(number));
