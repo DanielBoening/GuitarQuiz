@@ -196,7 +196,7 @@ public class Quiz extends Activity {
 //				}
 			}
 		}
-
+		
 		if (nextround) {
 			outputString = "Runde "+round;
 		}
@@ -204,6 +204,14 @@ public class Quiz extends Activity {
 	}
 
 	private void prepareForNextRound() {
+		
+//		try {
+//			Thread.sleep(1500);
+//		} catch (InterruptedException e) {
+//			// TODO Auto-generated catch block
+//			e.printStackTrace();
+//		}
+		
 		round++;
 		ArrayList<Button> buttons = getButtonList();
 
