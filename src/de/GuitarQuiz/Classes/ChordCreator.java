@@ -70,13 +70,13 @@ public class ChordCreator {
 		
 
 	//	placeImage(R.id.quiz_finger1, 100, 100);
-		placeImage(R.id.quiz_finger1, 1);
+//		placeImage(R.id.quiz_finger1, 1);
 	
 		
-//		placeImage(R.id.quiz_finger1, chord.getFingerPoints()[0]);
-//		placeImage(R.id.quiz_finger2, chord.getFingerPoints()[1]);
-//		placeImage(R.id.quiz_finger3, chord.getFingerPoints()[2]);
-//		placeImage(R.id.quiz_finger4, chord.getFingerPoints()[3]);
+		placeImage(R.id.quiz_finger1, chord.getFingerPoints()[0]);
+		placeImage(R.id.quiz_finger2, chord.getFingerPoints()[1]);
+		placeImage(R.id.quiz_finger3, chord.getFingerPoints()[2]);
+		placeImage(R.id.quiz_finger4, chord.getFingerPoints()[3]);
 //		ImageView finger1 = (ImageView) activity.findViewById(R.id.quiz_finger1);
 //		RelativeLayout.LayoutParams finger1Params= (RelativeLayout.LayoutParams) finger1.getLayoutParams();
 //		Tuple finger1Position = getImagePosition(28);
