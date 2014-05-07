@@ -2,6 +2,8 @@ package de.GuitarQuiz.Classes;
 
 import android.app.Activity;
 import android.view.View;
+import android.view.View.MeasureSpec;
+import android.view.ViewTreeObserver.OnGlobalLayoutListener;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 
@@ -14,8 +16,8 @@ public class ChordCreator {
 	Activity activity;
 	Tuple IMG_START;
 	Tuple IMG_END;
-	static Tuple BORDER_X = new Tuple(90,-20); //Border Links und Rechts, wo kein Bild platziert werden darf
-	static Tuple BORDER_Y = new Tuple(24,20); //Border Oben und Unten, wo kein Bild platziert werden darf
+	static Tuple BORDER_X = new Tuple(90,0); //Border Links und Rechts, wo kein Bild platziert werden darf
+	static Tuple BORDER_Y = new Tuple(7,40); //Border Oben und Unten, wo kein Bild platziert werden darf
 
 	
 	
@@ -27,18 +29,54 @@ public class ChordCreator {
 
 	public void setChord(Chord c) {
 		this.chord = c;
-		ImageView chordPattern = (ImageView) activity.findViewById(R.id.ChordPattern);
+		final ImageView chordPattern = (ImageView) activity.findViewById(R.id.ChordPattern);
+		chordPattern.measure(MeasureSpec.UNSPECIFIED, MeasureSpec.UNSPECIFIED);
 		RelativeLayout.LayoutParams chordParam = (RelativeLayout.LayoutParams) chordPattern.getLayoutParams();
-		IMG_START = new Tuple(chordParam.leftMargin,chordParam.topMargin);
+		//IMG_START = new Tuple(chordParam.leftMargin,chordParam.topMargin);
 		int imageWidth = chordPattern.getWidth();
-//		IMG_END = new Tuple(chordParam.leftMargin+chordPattern.getWidth(),chordParam.topMargin+chordPattern.getHeight());
-		IMG_END = new Tuple(407,290);
+		//IMG_END = new Tuple(chordParam.leftMargin+chordPattern.getMeasuredWidth(),chordParam.topMargin+chordPattern.getMeasuredHeight());
+	
+		
+		
+		
+//		IMG_START = new Tuple(50,250);
+//		IMG_END = new Tuple(407,345);
+		
+		final RelativeLayout chordLayout = (RelativeLayout) activity.findViewById(R.id.RelativeLayout2);
+		chordLayout.measure(MeasureSpec.UNSPECIFIED, MeasureSpec.UNSPECIFIED);
+		int[] locations = new int[2];
+		chordPattern.getLocationOnScreen(locations);
+//		int leftMargin = locations[0];
+		int leftMargin = (int) ((int) chordParam.width / (4.80));
+		int topMargin = (int) ((int) chordParam.height / (26.00));
+		IMG_START = new Tuple(locations[0],locations[1]);
+		IMG_END = new Tuple(locations[0]+chordPattern.getMeasuredWidth(), locations[1]+chordPattern.getMeasuredHeight());
+		BORDER_X = new Tuple(leftMargin,0); 
+		BORDER_Y = new Tuple(topMargin,0);
+		
+		
+		Helper.log("Left Margin: "+leftMargin);
+		Helper.log("Top Margin: "+topMargin);
+		Helper.log("Start: "+IMG_START);
+		Helper.log("End: "+IMG_END);
+		
+		int width = chordLayout.getMeasuredWidth();
+		int height  = chordLayout.getMeasuredHeight();
+		
+		//Helper.log("Höhe: "+height);
+
+		//onPreDrawListstener, onGlobalLayout
 
 		
-		placeImage(R.id.quiz_finger1, chord.getFingerPoints()[0]);
-		placeImage(R.id.quiz_finger2, chord.getFingerPoints()[1]);
-		placeImage(R.id.quiz_finger3, chord.getFingerPoints()[2]);
-		placeImage(R.id.quiz_finger4, chord.getFingerPoints()[3]);
+
+	//	placeImage(R.id.quiz_finger1, 100, 100);
+		placeImage(R.id.quiz_finger1, 1);
+	
+		
+//		placeImage(R.id.quiz_finger1, chord.getFingerPoints()[0]);
+//		placeImage(R.id.quiz_finger2, chord.getFingerPoints()[1]);
+//		placeImage(R.id.quiz_finger3, chord.getFingerPoints()[2]);
+//		placeImage(R.id.quiz_finger4, chord.getFingerPoints()[3]);
 //		ImageView finger1 = (ImageView) activity.findViewById(R.id.quiz_finger1);
 //		RelativeLayout.LayoutParams finger1Params= (RelativeLayout.LayoutParams) finger1.getLayoutParams();
 //		Tuple finger1Position = getImagePosition(28);
@@ -61,6 +99,15 @@ public class ChordCreator {
 		if(i == 0){
 			finger1.setVisibility(View.INVISIBLE);
 		}
+	}
+
+	private void placeImage(int imgID, int x, int y) {
+		ImageView finger1 = (ImageView) activity.findViewById(imgID);
+		finger1.setVisibility(View.VISIBLE);
+		RelativeLayout.LayoutParams finger1Params= (RelativeLayout.LayoutParams) finger1.getLayoutParams();
+		Tuple finger1Position = new Tuple(x,y);
+		finger1Params.setMargins(finger1Position.getX(), finger1Position.getY(), 0, 0);
+
 	}
 
 

@@ -17,6 +17,8 @@ import android.view.WindowManager;
 import android.view.View;
 import android.widget.Button;
 import android.view.View;
+import android.view.View.MeasureSpec;
+import android.view.ViewTreeObserver.OnGlobalLayoutListener;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
@@ -47,13 +49,31 @@ public class Quiz extends Activity {
 
 	@Override
 	protected void onResume() {
-		creator = new ChordCreator(this);
-		// creator.setChord(chords.get(0));
-		Chord randomChord = chords.get((new Random()).nextInt(chords.size()));
+		super.onResume(); 
 
-		creator.setChord(randomChord);
-		super.onResume();
-		printAnswersToButton(randomChord, (ArrayList<Chord>) chords.clone());
+		
+		
+		final RelativeLayout chordLayout = (RelativeLayout) this.findViewById(R.id.RelativeLayout2);
+		final Activity correntActivity = this;
+		chordLayout.getViewTreeObserver().addOnGlobalLayoutListener(new OnGlobalLayoutListener(){
+			
+			@Override
+			public void onGlobalLayout() {
+				
+				creator = new ChordCreator(correntActivity);
+				Chord randomChord = chords.get((new Random()).nextInt(chords.size()));
+				creator.setChord(randomChord);
+				printAnswersToButton(randomChord, (ArrayList<Chord>) chords.clone());
+				
+				
+				
+				chordLayout.getViewTreeObserver().removeGlobalOnLayoutListener(this);
+
+			}
+			
+		});
+		
+		
 	}
 
 	public int printAnswersToButton(Chord right, ArrayList<Chord> others) {
@@ -72,10 +92,10 @@ public class Quiz extends Activity {
 
 		rightAccord = (new Random()).nextInt(buttons.size());
 		
-		Helper.log("Generating new Random: "+rightAccord);
+//		Helper.log("Generating new Random: "+rightAccord);
 		buttons.get(rightAccord).setText(right.getName());
 		used.add(rightAccord);
-		Helper.log("Added "+right.getName()+" to Button " +rightAccord);
+//		Helper.log("Added "+right.getName()+" to Button " +rightAccord);
 		others.remove(right);
 
 		while (used.size() <= 3) {
