@@ -13,8 +13,13 @@ import android.app.Activity;
 import android.os.Bundle;
 import android.support.v4.view.ViewPager.LayoutParams;
 <<<<<<< HEAD
+<<<<<<< HEAD
 import android.view.Window;
 import android.view.WindowManager;
+=======
+import android.view.View;
+import android.widget.Button;
+>>>>>>> b5de3f24f54dcd85b655239090931e5ec89a54d5
 =======
 import android.view.View;
 import android.widget.Button;
@@ -97,6 +102,7 @@ public class Quiz extends Activity {
 		}
 
 		return rightAccord;
+<<<<<<< HEAD
 	}
 
 	public void onClick(View v) {
@@ -150,6 +156,61 @@ public class Quiz extends Activity {
 
 	}
 
+=======
+	}
+
+	public void onClick(View v) {
+		int selectedButton = 0;
+		String outputString = "";
+		TextView t = (TextView) findViewById(R.id.textView1);
+		boolean nextround = false;
+
+		switch (v.getId()) {
+		case R.id.quiz_b1:
+			selectedButton = 0;
+			// Button b = ((Button) v);
+
+			break;
+		case R.id.quiz_b2:
+			selectedButton = 1;
+			break;
+		case R.id.quiz_b3:
+			selectedButton = 2;
+			break;
+		case R.id.quiz_b4:
+			selectedButton = 3;
+			break;
+		case R.id.nextRound:
+			nextround = true;
+			Chord randomChord = chords.get((new Random()).nextInt(chords.size()));
+			creator.setChord(randomChord);
+			printAnswersToButton(randomChord, (ArrayList<Chord>) chords.clone());		
+			break;
+
+		}
+
+		if(selectedButton == rightAccord){
+			outputString = "Richtig!! ("+rightAccord+")";
+		}
+		else{
+			outputString = "Leider Falsch  ("+rightAccord+")";
+		}
+
+		if(nextround){
+			outputString = "Wähle einen Button!";
+		}
+		t.setText(outputString);
+	}
+
+	protected void creatChords() {
+		addChord(names[0], fingers[0], isPlayed[0]);
+		addChord(names[1], fingers[1], isPlayed[1]);
+		addChord(names[2], fingers[2], isPlayed[2]);
+		addChord(names[3], fingers[3], isPlayed[3]);
+
+	}
+
+>>>>>>> b5de3f24f54dcd85b655239090931e5ec89a54d5
 	protected void addChord(String name, int[] fingers, int[] isPlayed) {
 		Chord dummy = new Chord(name, fingers, isPlayed);
 		chords.add(dummy);
