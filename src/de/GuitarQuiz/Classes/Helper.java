@@ -7,4 +7,4 @@ public class Helper {
 	public static void log (String blockMessage) {
 		Log.d(tag, blockMessage);
 	}
-}
+} 
