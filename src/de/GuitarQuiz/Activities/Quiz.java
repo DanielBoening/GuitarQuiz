@@ -12,6 +12,10 @@ import de.GuitarQuiz.Classes.Tuple;
 import android.app.Activity;
 import android.os.Bundle;
 import android.support.v4.view.ViewPager.LayoutParams;
+import android.view.Window;
+import android.view.WindowManager;
+import android.view.View;
+import android.widget.Button;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
@@ -32,6 +36,10 @@ public class Quiz extends Activity {
 	protected void onCreate(Bundle savedInstanceState) {
 		// TODO Auto-generated method stub
 		super.onCreate(savedInstanceState);
+		
+        requestWindowFeature(Window.FEATURE_NO_TITLE);
+        getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
+		
 		setContentView(R.layout.quiz);
 		creatChords();
 
@@ -140,6 +148,8 @@ public class Quiz extends Activity {
 		addChord(names[3], fingers[3], isPlayed[3]);
 
 	}
+
+	
 
 	protected void addChord(String name, int[] fingers, int[] isPlayed) {
 		Chord dummy = new Chord(name, fingers, isPlayed);
