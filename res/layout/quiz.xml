@@ -117,24 +117,24 @@
             android:id="@+id/menuL"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:background="@drawable/menupattern"
-            android:src="@drawable/menupattern"
+            android:background="@drawable/menuleft"
+            android:src="@drawable/menuleft"
             android:text="MENU" />
 
         <Button
             android:id="@+id/menuR"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:background="@drawable/menupattern"
-            android:src="@drawable/menupattern"
+            android:background="@drawable/menuright"
+            android:src="@drawable/menuright"
             android:text="Chord" />
 
         <Button
             android:id="@+id/menuM"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:background="@drawable/menupattern"
-            android:src="@drawable/menupattern"
+            android:background="@drawable/menumid"
+            android:src="@drawable/menumid"
             android:text="Tab" />
     </LinearLayout>
 
