@@ -127,6 +127,7 @@ public class Quiz extends Activity {
 				Toast.makeText(getApplicationContext(),
 						"Nächste Runde startet jetzt", Toast.LENGTH_LONG)
 						.show();
+				prepareForNextRound();
 
 			} catch (Exception e) {
 				e.printStackTrace();
@@ -186,10 +187,14 @@ public class Quiz extends Activity {
 	}
 
 	public void onClick(View v) {
+		// Button Config
+		int startBlinking = 500;
+		int blinkingDuration = 250;
+		int timesOfBlinking = 5;
+
 		int selectedButton = 0;
 		String outputString = "";
 		TextView t = (TextView) findViewById(R.id.textView1);
-		boolean nextround = false;
 
 		switch (v.getId()) {
 		case R.id.quiz_b1:
@@ -206,55 +211,30 @@ public class Quiz extends Activity {
 		case R.id.quiz_b4:
 			selectedButton = 3;
 			break;
-		case R.id.nextRound:
-			nextround = true;
-			prepareForNextRound();
-			break;
 
 		}
 
 		if (selectedButton == rightAccord) {
-			outputString = "Richtig!!"; // richtige
-										// Antwort
-			if (v.getId() != R.id.nextRound) {
-				Button correctButton = (Button) findViewById(v.getId());
-				correctButton.setBackgroundResource(R.drawable.correctanswer);
-			}
+			// Richtige antwort ausgewählt
+
+			Button correctButton = (Button) findViewById(v.getId());
+			correctButton.setBackgroundResource(R.drawable.correctanswer);
+
 		} else {
-			outputString = "Leider Falsch :-(";
+			// Falsche Antwort
+			Button falseButton = (Button) findViewById(v.getId());
+			falseButton.setBackgroundResource(R.drawable.falseanswer);
 
-			if (v.getId() != R.id.nextRound) {
-				Button falseButton = (Button) findViewById(v.getId());
-				falseButton.setBackgroundResource(R.drawable.falseanswer);
-				int startBlinking = 500;
-				int blinkingDuration = 250;
-				for (int i = 0; i < 5; i++) {
-					rightButtonHandler.postDelayed(letRightButtonBlink,
-							startBlinking + blinkingDuration * i);
-				}
-				// rightButtonHandler.postDelayed(letRightButtonBlink, 900);
-				// rightButtonHandler.postDelayed(letRightButtonBlink, 1100);
-				// rightButtonHandler.postDelayed(letRightButtonBlink, 1300);
-				// rightButtonGreyHandler.postDelayed(changeRightButtonGrey,
-				// 900);
-
-				// try {
-				// for (int i = 0; i < 3; i++) {
-				// rightButton.setBackgroundResource(R.drawable.correctanswer);
-				// // SystemClock.sleep(250);
-				// //
-				// rightButton.setBackgroundResource(R.drawable.answerbutton);
-				// // SystemClock.sleep(250);
-				// }
-				// } catch (Exception E) {
-				// E.printStackTrace();
-				// }
+			for (int i = 0; i < timesOfBlinking; i++) {
+				rightButtonHandler.postDelayed(letRightButtonBlink,
+						startBlinking + blinkingDuration * i);
 			}
+
 		}
 
-		if (nextround) {
-			outputString = "Runde " + round;
-		}
+		startNextRoundHandler.postDelayed(runNextRound, startBlinking
+				+ blinkingDuration * timesOfBlinking + 200);
+
 		t.setText(outputString);
 	}
 
