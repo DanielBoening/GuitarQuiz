@@ -124,10 +124,7 @@ public class Quiz extends Activity {
 	private Runnable runNextRound = new Runnable() {
 		public void run() {
 			try {
-
-
 				prepareForNextRound();
-
 			} catch (Exception e) {
 				e.printStackTrace();
 			}
@@ -192,14 +189,11 @@ public class Quiz extends Activity {
 		int timesOfBlinking = 5;
 
 		int selectedButton = 0;
-		String outputString = "";
 		TextView t = (TextView) findViewById(R.id.textView1);
 
 		switch (v.getId()) {
 		case R.id.quiz_b1:
 			selectedButton = 0;
-			// Button b = ((Button) v);
-
 			break;
 		case R.id.quiz_b2:
 			selectedButton = 1;
@@ -223,47 +217,49 @@ public class Quiz extends Activity {
 				// Falsche Antwort
 				Button falseButton = (Button) findViewById(v.getId());
 				falseButton.setBackgroundResource(R.drawable.falseanswer);
-
+				
+				// Richtiger Button blinkt
 				for (int i = 0; i < timesOfBlinking; i++) {
 					rightButtonHandler.postDelayed(letRightButtonBlink,
 							startBlinking + blinkingDuration * i);
 				}
 
 			}
-			roundIsOver = true;
+			
 			startNextRoundHandler.postDelayed(runNextRound, startBlinking
 					+ blinkingDuration * timesOfBlinking + 200);
-
-			t.setText(outputString);
+//			prepareForNextRound();
+			t.setText("");
+			roundIsOver = true;
 		}
 	}
 
 	private void prepareForNextRound() {
 
-		// try {
-		// Thread.sleep(1500);
-		// } catch (InterruptedException e) {
-		// // TODO Auto-generated catch block
-		// e.printStackTrace();
-		// }
+
 		roundIsOver = false;
 		round++;
 		ArrayList<Button> buttons = getButtonList();
 
+		// Clear Buttons
 		for (Button b : buttons) {
 			b.setBackgroundResource(R.drawable.answerbutton);
 		}
 
 		Chord randomChord = chords.get((new Random()).nextInt(chords.size()));
 		rightChordItem = randomChord;
-		Toast.makeText(getApplicationContext(),
-				"Neuer Accord "+rightChordItem.getName()+" wird geprintet", Toast.LENGTH_LONG)
-				.show();
-		creator.setChord(randomChord);
+//		Toast.makeText(getApplicationContext(),
+//				"Neuer Accord "+rightChordItem.getName()+" wird geprintet", Toast.LENGTH_LONG)
+//				.show();
+//		creator = new ChordCreator(this);
+//		creator.setChord(randomChord);
 		printAnswersToButton(randomChord, (ArrayList<Chord>) chords.clone());
-
+		creator.setChord(rightChordItem);
+		TextView t = (TextView) findViewById(R.id.textView1);
+		t.setText("");
+		
 	}
-
+ 
 	protected void creatChords() {
 		addChord(names[0], fingers[0], isPlayed[0]);
 		addChord(names[1], fingers[1], isPlayed[1]);
