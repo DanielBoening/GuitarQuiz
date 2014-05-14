@@ -15,8 +15,7 @@ import com.MusikMonksSolution.guitarquiz.R;
 public class StartMenu extends Activity {
 	private ProgressBar progressBar;
 	
-	
-	
+
 	/** Called when the activity is first created. */
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
@@ -45,6 +44,10 @@ public class StartMenu extends Activity {
 	public void play(View v) {
 		Intent myIntent = new Intent(StartMenu.this, Quiz.class);
 		StartMenu.this.startActivity(myIntent);
+	}
+	
+	public void facebookShare(View v){
+		
 	}
 
 }
