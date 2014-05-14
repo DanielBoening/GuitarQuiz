@@ -26,6 +26,7 @@ public class Quiz extends Activity {
 	private Button rightButton;
 	int round = 0;
 	boolean buttonIsGreen = false;
+	boolean roundIsOver = false;
 
 	String[] names = { "D-Moll", "D-Dur", "E", "E-Moll" };
 	int[][] fingers = { { 1, 12, 8, 0, 0 }, { 12, 2, 8, 0, 0 },
@@ -124,9 +125,7 @@ public class Quiz extends Activity {
 		public void run() {
 			try {
 
-				Toast.makeText(getApplicationContext(),
-						"Nächste Runde startet jetzt", Toast.LENGTH_LONG)
-						.show();
+
 				prepareForNextRound();
 
 			} catch (Exception e) {
@@ -213,29 +212,30 @@ public class Quiz extends Activity {
 			break;
 
 		}
+		if (!roundIsOver) { // Keine Action wenn schon ein button geklickt wurde
+			if (selectedButton == rightAccord) {
+				// Richtige antwort ausgewählt
 
-		if (selectedButton == rightAccord) {
-			// Richtige antwort ausgewählt
+				Button correctButton = (Button) findViewById(v.getId());
+				correctButton.setBackgroundResource(R.drawable.correctanswer);
 
-			Button correctButton = (Button) findViewById(v.getId());
-			correctButton.setBackgroundResource(R.drawable.correctanswer);
+			} else {
+				// Falsche Antwort
+				Button falseButton = (Button) findViewById(v.getId());
+				falseButton.setBackgroundResource(R.drawable.falseanswer);
 
-		} else {
-			// Falsche Antwort
-			Button falseButton = (Button) findViewById(v.getId());
-			falseButton.setBackgroundResource(R.drawable.falseanswer);
+				for (int i = 0; i < timesOfBlinking; i++) {
+					rightButtonHandler.postDelayed(letRightButtonBlink,
+							startBlinking + blinkingDuration * i);
+				}
 
-			for (int i = 0; i < timesOfBlinking; i++) {
-				rightButtonHandler.postDelayed(letRightButtonBlink,
-						startBlinking + blinkingDuration * i);
 			}
+			roundIsOver = true;
+			startNextRoundHandler.postDelayed(runNextRound, startBlinking
+					+ blinkingDuration * timesOfBlinking + 200);
 
+			t.setText(outputString);
 		}
-
-		startNextRoundHandler.postDelayed(runNextRound, startBlinking
-				+ blinkingDuration * timesOfBlinking + 200);
-
-		t.setText(outputString);
 	}
 
 	private void prepareForNextRound() {
@@ -246,7 +246,7 @@ public class Quiz extends Activity {
 		// // TODO Auto-generated catch block
 		// e.printStackTrace();
 		// }
-
+		roundIsOver = false;
 		round++;
 		ArrayList<Button> buttons = getButtonList();
 
@@ -256,6 +256,9 @@ public class Quiz extends Activity {
 
 		Chord randomChord = chords.get((new Random()).nextInt(chords.size()));
 		rightChordItem = randomChord;
+		Toast.makeText(getApplicationContext(),
+				"Neuer Accord "+rightChordItem.getName()+" wird geprintet", Toast.LENGTH_LONG)
+				.show();
 		creator.setChord(randomChord);
 		printAnswersToButton(randomChord, (ArrayList<Chord>) chords.clone());
 
