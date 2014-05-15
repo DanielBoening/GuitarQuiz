@@ -23,6 +23,7 @@
         <activity
           android:name="de.GuitarQuiz.Activities.Quiz">
         </activity>
+        <activity android:name="de.GuitarQuiz.Activities.MenuSelect"></activity>
     </application>
 
 </manifest>

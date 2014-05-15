@@ -42,7 +42,7 @@ public class StartMenu extends Activity {
 	}
 
 	public void play(View v) {
-		Intent myIntent = new Intent(StartMenu.this, Quiz.class);
+		Intent myIntent = new Intent(StartMenu.this, MenuSelect.class);
 		StartMenu.this.startActivity(myIntent);
 	}
 	

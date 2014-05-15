@@ -10,8 +10,8 @@
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="135dp"
-        android:text="Start Game"
-        android:onClick="play" />
+        android:onClick="play"
+        android:background="@drawable/playbutton" />
 
     <ProgressBar
         android:id="@+id/progressBar1"
@@ -39,5 +39,14 @@
         android:layout_alignParentRight="true"
         android:onClick="facebookShare"
         android:src="@drawable/facebookshare" />
+
+    <Button
+        android:id="@+id/button2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/button1"
+        android:layout_below="@+id/button1"
+        android:layout_marginTop="44dp"
+        android:background="@drawable/settingsbutton" />
 
 </RelativeLayout>
