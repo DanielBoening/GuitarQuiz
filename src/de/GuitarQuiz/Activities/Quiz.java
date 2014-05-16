@@ -11,6 +11,7 @@ import android.view.ViewTreeObserver.OnGlobalLayoutListener;
 import android.view.Window;
 import android.view.WindowManager;
 import android.widget.Button;
+import android.widget.ProgressBar;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -19,15 +20,21 @@ import com.MusikMonksSolution.guitarquiz.R;
 
 import de.GuitarQuiz.Classes.Chord;
 import de.GuitarQuiz.Classes.ChordCreator;
+import de.GuitarQuiz.Classes.ChordLibrary;
 
 public class Quiz extends Activity {
 	ArrayList<Chord> chords = new ArrayList<Chord>();
+	ArrayList<Chord> inagameChords = new ArrayList<Chord>();
 	private Chord rightChordItem;
 	private Button rightButton;
 	int round = 0;
+	int level = 1;
+	int ALL_ROUNDS = 15;
 	boolean buttonIsGreen = false;
 	boolean roundIsOver = false;
-
+	private ProgressBar progressBar;
+	private int GAME_MODE = 1; // 1=Accorde Raten
+	
 	String[] names = { "D-Moll", "D-Dur", "E", "E-Moll" };
 	int[][] fingers = { { 1, 12, 8, 0, 0 }, { 12, 2, 8, 0, 0 },
 			{ 11, 22, 17, 0, 0 }, { 0, 22, 17, 0, 0 } };
@@ -47,7 +54,15 @@ public class Quiz extends Activity {
 				WindowManager.LayoutParams.FLAG_FULLSCREEN);
 
 		setContentView(R.layout.quiz);
-		creatChords();
+		//creatChords();
+		chords = ChordLibrary.createChordList(level);
+		progressBar = (ProgressBar) findViewById(R.id.QuizProgressBar);
+		progressBar.setMax(100);
+		
+		inagameChords.addAll(chords);
+		inagameChords.addAll(chords);
+		ALL_ROUNDS = inagameChords.size();
+		
 
 	}
 
@@ -233,11 +248,19 @@ public class Quiz extends Activity {
 			roundIsOver = true;
 		}
 	}
-
+	private void updateProgressBar() {
+		double progress = round * (100 / ALL_ROUNDS);
+		progressBar.setProgress((int) progress);
+//		TextView progressView = (TextView) findViewById(R.id.ProgressView);
+//		progressView.setText("Fortschritt: "+progress+"%");		
+	}
+	
+	
 	private void prepareForNextRound() {
 
 
 		roundIsOver = false;
+		updateProgressBar();
 		round++;
 		ArrayList<Button> buttons = getButtonList();
 
@@ -259,7 +282,7 @@ public class Quiz extends Activity {
 		t.setText("");
 		
 	}
- 
+ /*
 	protected void creatChords() {
 		addChord(names[0], fingers[0], isPlayed[0]);
 		addChord(names[1], fingers[1], isPlayed[1]);
@@ -273,5 +296,5 @@ public class Quiz extends Activity {
 		chords.add(dummy);
 
 	}
-
+*/
 }

@@ -1,5 +1,7 @@
 package de.GuitarQuiz.Classes;
 
+import java.util.ArrayList;
+
 public class ChordLibrary {
 	/* ########## Legende ########## 
 	 * X^=1
@@ -26,7 +28,7 @@ public class ChordLibrary {
 			{ 11, 22, 17, 0, 0 }, 	//E
 			{ 0, 22, 17, 0, 0 }, 	//E-Moll
 			{ 12, 17, 7, 0, 0 }, 	//A
-			{ 22, 28, 15, 0, 0 }, 	//G
+			{ 22, 28, 3, 0, 0 }, 	//G
 			{ 6, 17, 23, 0, 0 }, 	//C
 			{ 6, 12, 17, 0, 0 } 	//A-Moll
 			};
@@ -72,7 +74,18 @@ public class ChordLibrary {
 	
 	
 	
-	
+	public static ArrayList<Chord> createChordList(int level){
+		ArrayList<Chord> chords = new ArrayList<Chord>();
+		String[] names = getNames(level);
+		int[][] fingers = getFingersLevel(level);
+		int[][] isPlayed = getIsPlayedLevel(level);
+		for(int i = 0; i < names.length; i++){
+			Chord dummy = new Chord(names[i], fingers[i], isPlayed[i]);
+			chords.add(dummy);
+		}
+		
+		return chords;
+	}
 	
 	
 	
