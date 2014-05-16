@@ -29,12 +29,14 @@ public class Quiz extends Activity {
 	private Button rightButton;
 	int round = 0;
 	int level = 1;
+	int rightAnswers = 0;
+	int falseAnswers = 0;
 	int ALL_ROUNDS = 15;
 	boolean buttonIsGreen = false;
 	boolean roundIsOver = false;
 	private ProgressBar progressBar;
 	private int GAME_MODE = 1; // 1=Accorde Raten
-	
+
 	String[] names = { "D-Moll", "D-Dur", "E", "E-Moll" };
 	int[][] fingers = { { 1, 12, 8, 0, 0 }, { 12, 2, 8, 0, 0 },
 			{ 11, 22, 17, 0, 0 }, { 0, 22, 17, 0, 0 } };
@@ -54,15 +56,14 @@ public class Quiz extends Activity {
 				WindowManager.LayoutParams.FLAG_FULLSCREEN);
 
 		setContentView(R.layout.quiz);
-		//creatChords();
+		// creatChords();
 		chords = ChordLibrary.createChordList(level);
 		progressBar = (ProgressBar) findViewById(R.id.QuizProgressBar);
 		progressBar.setMax(100);
-		
+
 		inagameChords.addAll(chords);
-		inagameChords.addAll(chords);
+//		inagameChords.addAll(chords);
 		ALL_ROUNDS = inagameChords.size();
-		
 
 	}
 
@@ -224,15 +225,16 @@ public class Quiz extends Activity {
 		if (!roundIsOver) { // Keine Action wenn schon ein button geklickt wurde
 			if (selectedButton == rightAccord) {
 				// Richtige antwort ausgewählt
-
+				rightAnswers++;
 				Button correctButton = (Button) findViewById(v.getId());
 				correctButton.setBackgroundResource(R.drawable.correctanswer);
 
 			} else {
 				// Falsche Antwort
+				falseAnswers++;
 				Button falseButton = (Button) findViewById(v.getId());
 				falseButton.setBackgroundResource(R.drawable.falseanswer);
-				
+
 				// Richtiger Button blinkt
 				for (int i = 0; i < timesOfBlinking; i++) {
 					rightButtonHandler.postDelayed(letRightButtonBlink,
@@ -240,61 +242,77 @@ public class Quiz extends Activity {
 				}
 
 			}
-			
+
 			startNextRoundHandler.postDelayed(runNextRound, startBlinking
 					+ blinkingDuration * timesOfBlinking + 200);
-//			prepareForNextRound();
+			// prepareForNextRound();
 			t.setText("");
 			roundIsOver = true;
 		}
 	}
+
 	private void updateProgressBar() {
-		double progress = round * (100 / ALL_ROUNDS);
+		double progress = (round * 100) / ALL_ROUNDS;
 		progressBar.setProgress((int) progress);
-//		TextView progressView = (TextView) findViewById(R.id.ProgressView);
-//		progressView.setText("Fortschritt: "+progress+"%");		
+		// TextView progressView = (TextView) findViewById(R.id.ProgressView);
+		// progressView.setText("Fortschritt: "+progress+"%");
 	}
-	
-	
+
 	private void prepareForNextRound() {
 
-
-		roundIsOver = false;
+		TextView t = (TextView) findViewById(R.id.textView1);
+		
 		updateProgressBar();
-		round++;
-		ArrayList<Button> buttons = getButtonList();
 
-		// Clear Buttons
-		for (Button b : buttons) {
-			b.setBackgroundResource(R.drawable.answerbutton);
+		// Check for Game Over
+		if (round >= ALL_ROUNDS) {
+			t.setText("Game Over!!! ("+rightAnswers+"/"+ALL_ROUNDS+")");
+			// Weiterleitung an nächste Activity
+
 		}
 
-		Chord randomChord = chords.get((new Random()).nextInt(chords.size()));
-		rightChordItem = randomChord;
-//		Toast.makeText(getApplicationContext(),
-//				"Neuer Accord "+rightChordItem.getName()+" wird geprintet", Toast.LENGTH_LONG)
-//				.show();
-//		creator = new ChordCreator(this);
-//		creator.setChord(randomChord);
-		printAnswersToButton(randomChord, (ArrayList<Chord>) chords.clone());
-		creator.setChord(rightChordItem);
-		TextView t = (TextView) findViewById(R.id.textView1);
-		t.setText("");
-		
-	}
- /*
-	protected void creatChords() {
-		addChord(names[0], fingers[0], isPlayed[0]);
-		addChord(names[1], fingers[1], isPlayed[1]);
-		addChord(names[2], fingers[2], isPlayed[2]);
-		addChord(names[3], fingers[3], isPlayed[3]);
+		else {
+			roundIsOver = false;
+			round++;
+			ArrayList<Button> buttons = getButtonList();
+
+			// Clear Button Color
+			for (Button b : buttons) {
+				b.setBackgroundResource(R.drawable.answerbutton);
+			}
+
+//			Chord randomChord = chords
+//					.get((new Random()).nextInt(chords.size()));
+			
+			Chord randomChord = chords
+					.get((new Random()).nextInt(inagameChords.size()));
+			
+			inagameChords.remove(randomChord);
+			rightChordItem = randomChord;
+			// Toast.makeText(getApplicationContext(),
+			// "Neuer Accord "+rightChordItem.getName()+" wird geprintet",
+			// Toast.LENGTH_LONG)
+			// .show();
+			// creator = new ChordCreator(this);
+			// creator.setChord(randomChord);
+			printAnswersToButton(randomChord, (ArrayList<Chord>) chords.clone());
+			creator.setChord(rightChordItem);
+
+			t.setText("Noch "+inagameChords.size()+" Accorde");
+		}
 
 	}
-
-	protected void addChord(String name, int[] fingers, int[] isPlayed) {
-		Chord dummy = new Chord(name, fingers, isPlayed);
-		chords.add(dummy);
-
-	}
-*/
+	/*
+	 * protected void creatChords() { addChord(names[0], fingers[0],
+	 * isPlayed[0]); addChord(names[1], fingers[1], isPlayed[1]);
+	 * addChord(names[2], fingers[2], isPlayed[2]); addChord(names[3],
+	 * fingers[3], isPlayed[3]);
+	 * 
+	 * }
+	 * 
+	 * protected void addChord(String name, int[] fingers, int[] isPlayed) {
+	 * Chord dummy = new Chord(name, fingers, isPlayed); chords.add(dummy);
+	 * 
+	 * }
+	 */
 }
