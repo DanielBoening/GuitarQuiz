@@ -28,7 +28,7 @@ public class Quiz extends Activity {
 	private Chord rightChordItem;
 	private Button rightButton;
 	int round = 0;
-	int level = 1;
+	static int level = 1;
 	int rightAnswers = 0;
 	int falseAnswers = 0;
 	int ALL_ROUNDS = 15;
@@ -298,10 +298,15 @@ public class Quiz extends Activity {
 			printAnswersToButton(randomChord, (ArrayList<Chord>) chords.clone());
 			creator.setChord(rightChordItem);
 
-			t.setText("Noch "+inagameChords.size()+" Accorde");
+			t.setText(level+": Noch "+inagameChords.size()+" Accorde");
 		}
 
 	}
+	
+	public static void setLevel(int l){
+		level = l;
+	}
+	
 	/*
 	 * protected void creatChords() { addChord(names[0], fingers[0],
 	 * isPlayed[0]); addChord(names[1], fingers[1], isPlayed[1]);

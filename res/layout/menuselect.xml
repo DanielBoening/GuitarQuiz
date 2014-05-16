@@ -19,6 +19,29 @@
             android:text="Infinite Mode"
             android:onClick="startInfiniteMode" />
 
+        <Button
+            android:id="@+id/startlevel1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/button1"
+            android:layout_marginRight="19dp"
+            android:layout_marginTop="35dp"
+            android:layout_toLeftOf="@+id/button1"
+            android:text="Level 1"
+            android:onClick="startLevel" />
+
+        <Button
+            android:id="@+id/startLevel2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignLeft="@+id/startlevel1"
+            android:layout_below="@+id/startlevel1"
+            android:layout_marginTop="34dp"
+            android:onClick="startLevel"
+            android:text="Level 2" />
+
+            />
+
     </RelativeLayout>
 
 </LinearLayout>
