@@ -10,12 +10,10 @@ import android.widget.ProgressBar;
 import android.widget.TextView;
 
 import com.MusikMonksSolution.guitarquiz.R;
- 
+import de.GuitarQuiz.Classes.*;
 
 public class StartMenu extends Activity {
 	private ProgressBar progressBar;
-	
-
 	/** Called when the activity is first created. */
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
@@ -27,14 +25,16 @@ public class StartMenu extends Activity {
 				WindowManager.LayoutParams.FLAG_FULLSCREEN);
 
 		setContentView(R.layout.startpage);
-		
+
 		progressBar = (ProgressBar) findViewById(R.id.progressBar1);
 		progressBar.setMax(100);
 		int progress = 40;
 		setProgressBar(progress);
+
 		
 	}
 	
+
 	private void setProgressBar(int progress) {
 		progressBar.setProgress(progress);
 		TextView progressView = (TextView) findViewById(R.id.ProgressView);

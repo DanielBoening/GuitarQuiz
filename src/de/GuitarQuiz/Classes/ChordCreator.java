@@ -73,9 +73,9 @@ public class ChordCreator {
 	//	placeImage(R.id.quiz_finger1, 100, 100);
 //		placeImage(R.id.quiz_finger1, 1);
 	
-		Toast.makeText(activity.getApplicationContext(),
-				"Accord "+chord.getName()+" wird geprintet", Toast.LENGTH_SHORT)
-				.show();
+//		Toast.makeText(activity.getApplicationContext(),
+//				"Accord "+chord.getName()+" wird geprintet", Toast.LENGTH_SHORT)
+//				.show();
 		placeImage(R.id.quiz_finger1, chord.getFingerPoints()[0]);
 		placeImage(R.id.quiz_finger2, chord.getFingerPoints()[1]);
 		placeImage(R.id.quiz_finger3, chord.getFingerPoints()[2]);

@@ -14,13 +14,13 @@ import android.widget.Button;
 import android.widget.ProgressBar;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.MusikMonksSolution.guitarquiz.R;
 
 import de.GuitarQuiz.Classes.Chord;
 import de.GuitarQuiz.Classes.ChordCreator;
 import de.GuitarQuiz.Classes.ChordLibrary;
+import de.GuitarQuiz.Classes.UserDataBase;
 
 public class Quiz extends Activity {
 	ArrayList<Chord> chords = new ArrayList<Chord>();
@@ -36,6 +36,7 @@ public class Quiz extends Activity {
 	boolean roundIsOver = false;
 	private ProgressBar progressBar;
 	private int GAME_MODE = 1; // 1=Accorde Raten
+	UserDataBase userDataBase = new UserDataBase();
 
 	String[] names = { "D-Moll", "D-Dur", "E", "E-Moll" };
 	int[][] fingers = { { 1, 12, 8, 0, 0 }, { 12, 2, 8, 0, 0 },
@@ -64,6 +65,7 @@ public class Quiz extends Activity {
 		inagameChords.addAll(chords);
 //		inagameChords.addAll(chords);
 		ALL_ROUNDS = inagameChords.size();
+//		ALL_ROUNDS = 2;
 
 	}
 
@@ -266,6 +268,9 @@ public class Quiz extends Activity {
 
 		// Check for Game Over
 		if (round >= ALL_ROUNDS) {
+			userDataBase.load(this);
+			t.setText("Geht immer noch!");
+			userDataBase.updateHighScore(level, rightAnswers); // Bestes Ergebnis speichern
 			t.setText("Game Over!!! ("+rightAnswers+"/"+ALL_ROUNDS+")");
 			// Weiterleitung an nächste Activity
 

@@ -2,14 +2,19 @@ package de.GuitarQuiz.Activities;
 
 import com.MusikMonksSolution.guitarquiz.R;
 
+import de.GuitarQuiz.Classes.UserDataBase;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
+import android.widget.TextView;
 
 public class MenuSelect extends Activity {
+	private UserDataBase userDataBase = new UserDataBase();
+	TextView level1View;
+	TextView level2View;
 
 	/** Called when the activity is first created. */
 	@Override
@@ -23,6 +28,29 @@ public class MenuSelect extends Activity {
 				WindowManager.LayoutParams.FLAG_FULLSCREEN);
 
 		setContentView(R.layout.menuselect);
+		
+		userDataBase.load(this);
+		level1View = (TextView) findViewById(R.id.level1TextView);		
+		level2View = (TextView) findViewById(R.id.level2TextView);		
+		
+	}
+	
+	
+	@Override
+	protected void onResume() {
+		// TODO Auto-generated method stub
+		super.onResume();
+		level1View.setText("HighScore: "+userDataBase.getHighScore(1));
+		level2View.setText("HighScore: "+userDataBase.getHighScore(2));
+
+	}
+
+
+	public void resetDatabase(View v){
+		userDataBase.resetDataBase();
+		level1View.setText("HighScore: "+userDataBase.getHighScore(1));
+		level2View.setText("HighScore: "+userDataBase.getHighScore(2));
+
 	}
 
 	public void startInfiniteMode(View v) {

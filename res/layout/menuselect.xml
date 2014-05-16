@@ -40,7 +40,33 @@
             android:onClick="startLevel"
             android:text="Level 2" />
 
-            />
+        <TextView
+            android:id="@+id/level1TextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBaseline="@+id/startlevel1"
+            android:layout_alignBottom="@+id/startlevel1"
+            android:layout_toRightOf="@+id/startLevel2"
+            android:text="TextView" />
+
+        <Button
+            android:id="@+id/button2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginBottom="30dp"
+            android:onClick="resetDatabase"
+            android:text="Datenbank zurücksetzen" />
+
+        <TextView
+            android:id="@+id/level2TextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBaseline="@+id/startLevel2"
+            android:layout_alignBottom="@+id/startLevel2"
+            android:layout_alignLeft="@+id/level1TextView"
+            android:text="TextView" />
 
     </RelativeLayout>
 
