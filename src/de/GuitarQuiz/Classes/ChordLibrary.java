@@ -87,7 +87,16 @@ public class ChordLibrary {
 		return chords;
 	}
 	
+	public static ArrayList<Chord> getAllChords(){
+		ArrayList<Chord> chords = new ArrayList<Chord>();
+		for(int i=1; i <= 2; i++)
+			chords.addAll(createChordList(i));
+		return chords;
+	}
 	
+	public static int countAllChords(){
+		return getAllChords().size();
+	}
 	
 	public static String[] getNames(int i){
 		switch (i) {

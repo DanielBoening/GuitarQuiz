@@ -32,6 +32,13 @@ public class UserDataBase {
 		return highScore[level];
 	}
 	
+	public int getOverAllHighscore(){
+		int overAllHighScore = 0;
+		for(int i:highScore)
+			overAllHighScore+=i;
+		return overAllHighScore;
+	}
+	
 	public void updateHighScore(int level, int score){
 		if(highScore[level] < score){
 			saveHighScore(level, score);

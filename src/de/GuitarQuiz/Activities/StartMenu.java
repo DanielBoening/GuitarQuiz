@@ -14,6 +14,7 @@ import de.GuitarQuiz.Classes.*;
 
 public class StartMenu extends Activity {
 	private ProgressBar progressBar;
+	UserDataBase userData;
 	/** Called when the activity is first created. */
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
@@ -25,15 +26,27 @@ public class StartMenu extends Activity {
 				WindowManager.LayoutParams.FLAG_FULLSCREEN);
 
 		setContentView(R.layout.startpage);
-
+		userData = new UserDataBase();
+		userData.load(this);
+		
 		progressBar = (ProgressBar) findViewById(R.id.progressBar1);
 		progressBar.setMax(100);
 		int progress = 40;
+		progress = calculateProgress();
 		setProgressBar(progress);
 
 		
+		
 	}
 	
+
+	private int calculateProgress() {
+		int allChords = ChordLibrary.countAllChords();
+		int userRightAnswers = userData.getOverAllHighscore();
+		double progress = (userRightAnswers*100) / allChords;
+		return (int) progress;
+	}
+
 
 	private void setProgressBar(int progress) {
 		progressBar.setProgress(progress);
