@@ -62,6 +62,8 @@ public class MenuSelect extends Activity implements OnClickListener {
 	}
 
 	public void startInfiniteMode(View v) {
+		Quiz.setLevel(0);
+
 		Intent myIntent = new Intent(MenuSelect.this, Quiz.class);
 		MenuSelect.this.startActivity(myIntent);
 	}
@@ -74,6 +76,12 @@ public class MenuSelect extends Activity implements OnClickListener {
 			break;
 		case R.id.startLevel2:
 			level = 2;
+			break;
+		case R.id.startLevel3:
+			level = 1;
+			break;
+		case R.id.startLevel4:
+			level = 1;
 			break;
 
 		}

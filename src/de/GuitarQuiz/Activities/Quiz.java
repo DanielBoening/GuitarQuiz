@@ -14,6 +14,7 @@ import android.widget.Button;
 import android.widget.ProgressBar;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.MusikMonksSolution.guitarquiz.R;
 
@@ -37,7 +38,8 @@ public class Quiz extends Activity {
 	private ProgressBar progressBar;
 	private int GAME_MODE = 1; // 1=Accorde Raten
 	UserDataBase userDataBase = new UserDataBase();
-
+	boolean infiniteMode = false;
+	String defaultText = "";
 	String[] names = { "D-Moll", "D-Dur", "E", "E-Moll" };
 	int[][] fingers = { { 1, 12, 8, 0, 0 }, { 12, 2, 8, 0, 0 },
 			{ 11, 22, 17, 0, 0 }, { 0, 22, 17, 0, 0 } };
@@ -58,15 +60,35 @@ public class Quiz extends Activity {
 
 		setContentView(R.layout.quiz);
 		// creatChords();
-		chords = ChordLibrary.createChordList(level);
+		
 		progressBar = (ProgressBar) findViewById(R.id.QuizProgressBar);
 		progressBar.setMax(100);
-
+//		Toast.makeText(getApplicationContext(), "1", Toast.LENGTH_SHORT).show();
+		if(level == 0){
+			setupInfiniteMode();
+		}
+		else{
+			setupLevelMode();
+		}
 		inagameChords.addAll(chords);
 //		inagameChords.addAll(chords);
 		ALL_ROUNDS = inagameChords.size();
 //		ALL_ROUNDS = 2;
 
+	}
+
+	private void setupLevelMode() {
+		progressBar.setVisibility(View.VISIBLE);
+		infiniteMode = false;
+		chords = ChordLibrary.createChordList(level);
+		defaultText = "Level "+level;
+	}
+
+	private void setupInfiniteMode() {
+		progressBar.setVisibility(View.INVISIBLE);
+		infiniteMode = true;
+		chords = ChordLibrary.getAllChords();
+		defaultText = "Infinite Mode";
 	}
 
 	@Override
@@ -113,8 +135,7 @@ public class Quiz extends Activity {
 					buttonIsGreen = false;
 				}
 
-				// Toast.makeText(getApplicationContext(), ""+buttonIsGreen,
-				// Toast.LENGTH_LONG).show();
+
 
 			} catch (Exception e) {
 				e.printStackTrace();
@@ -248,7 +269,7 @@ public class Quiz extends Activity {
 			startNextRoundHandler.postDelayed(runNextRound, startBlinking
 					+ blinkingDuration * timesOfBlinking + 200);
 			// prepareForNextRound();
-			t.setText("");
+			t.setText(defaultText);
 			roundIsOver = true;
 		}
 	}
@@ -265,11 +286,12 @@ public class Quiz extends Activity {
 		TextView t = (TextView) findViewById(R.id.textView1);
 		
 		updateProgressBar();
-
+		if(infiniteMode){
+			defaultText = "Infinite Mode "+rightAnswers+"/"+(rightAnswers+falseAnswers);
+		}
 		// Check for Game Over
-		if (round >= ALL_ROUNDS) {
+		if (round >= ALL_ROUNDS && !infiniteMode) {
 			userDataBase.load(this);
-			t.setText("Geht immer noch!");
 			userDataBase.updateHighScore(level, rightAnswers); // Bestes Ergebnis speichern
 			t.setText("Game Over!!! ("+rightAnswers+"/"+ALL_ROUNDS+")");
 			// Weiterleitung an nächste Activity
@@ -303,7 +325,7 @@ public class Quiz extends Activity {
 			printAnswersToButton(randomChord, (ArrayList<Chord>) chords.clone());
 			creator.setChord(rightChordItem);
 
-			t.setText(level+": Noch "+inagameChords.size()+" Accorde");
+			t.setText(defaultText);
 		}
 
 	}
