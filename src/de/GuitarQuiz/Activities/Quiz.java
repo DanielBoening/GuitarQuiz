@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.Random;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.view.View;
@@ -247,7 +248,7 @@ public class Quiz extends Activity {
 		}
 		if (!roundIsOver) { // Keine Action wenn schon ein button geklickt wurde
 			if (selectedButton == rightAccord) {
-				// Richtige antwort ausgewählt
+				// Richtige antwort ausgewï¿½hlt
 				rightAnswers++;
 				Button correctButton = (Button) findViewById(v.getId());
 				correctButton.setBackgroundResource(R.drawable.correctanswer);
@@ -288,13 +289,18 @@ public class Quiz extends Activity {
 		updateProgressBar();
 		if(infiniteMode){
 			defaultText = "Infinite Mode "+rightAnswers+"/"+(rightAnswers+falseAnswers);
+			
 		}
 		// Check for Game Over
 		if (round >= ALL_ROUNDS && !infiniteMode) {
 			userDataBase.load(this);
 			userDataBase.updateHighScore(level, rightAnswers); // Bestes Ergebnis speichern
 			t.setText("Game Over!!! ("+rightAnswers+"/"+ALL_ROUNDS+")");
-			// Weiterleitung an nächste Activity
+			
+			// Weiterleitung an nï¿½chste Activity
+			
+			Intent myIntent = new Intent(Quiz.this, GameOver.class);
+			Quiz.this.startActivity(myIntent);
 
 		}
 
@@ -327,7 +333,6 @@ public class Quiz extends Activity {
 
 			t.setText(defaultText);
 		}
-
 	}
 	
 	public static void setLevel(int l){

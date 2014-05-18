@@ -10,6 +10,7 @@ import android.widget.ProgressBar;
 import android.widget.TextView;
 
 import com.MusikMonksSolution.guitarquiz.R;
+
 import de.GuitarQuiz.Classes.*;
 
 public class StartMenu extends Activity {
@@ -56,6 +57,11 @@ public class StartMenu extends Activity {
 
 	public void play(View v) {
 		Intent myIntent = new Intent(StartMenu.this, MenuSelect.class);
+		StartMenu.this.startActivity(myIntent);
+	}
+	
+	public void settings(View v){
+		Intent myIntent = new Intent(StartMenu.this, Settings.class);
 		StartMenu.this.startActivity(myIntent);
 	}
 	

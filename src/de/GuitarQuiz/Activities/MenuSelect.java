@@ -24,8 +24,6 @@ public class MenuSelect extends Activity implements OnClickListener {
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 
-		super.onCreate(savedInstanceState);
-
 		requestWindowFeature(Window.FEATURE_NO_TITLE);
 		getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
 				WindowManager.LayoutParams.FLAG_FULLSCREEN);
@@ -50,8 +48,8 @@ public class MenuSelect extends Activity implements OnClickListener {
 	public void resetDatabase(View v) {
 		AlertDialog ad = new AlertDialog.Builder(this)
 				.setMessage(
-						"Achtung.\nSollen deine Daten wirklich unwiderruflich gelöscht werden?")
-				.setIcon(R.drawable.ic_launcher).setTitle("Daten löschen")
+						"Achtung.\nSollen deine Daten wirklich unwiderruflich gelï¿½scht werden?")
+				.setIcon(R.drawable.ic_launcher).setTitle("Daten lï¿½schen")
 				.setPositiveButton("Ja", this).setNegativeButton("Nein", this)
 				.setCancelable(false).create();
 		ad.show();
