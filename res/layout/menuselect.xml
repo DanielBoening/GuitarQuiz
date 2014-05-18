@@ -2,108 +2,162 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical" >
+    android:orientation="horizontal" 
+	android:background="#FFF7E7"	>
+	
+    <LinearLayout
+        android:layout_width="160dp"
+        android:layout_height="match_parent"
+        android:orientation="vertical" >
 
-    <ScrollView
-        android:layout_width="fill_parent"
-        android:layout_height="fill_parent"
-       >
+        <Button
+            android:id="@+id/infiniteMode"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:layout_marginBottom="25dp"
+            android:layout_gravity="center_horizontal"
+            android:background="@drawable/infinitemode"
+            android:onClick="startInfiniteMode" />
 
-        <RelativeLayout
-            android:layout_width="fill_parent"
-            android:layout_height="460dp"
-            android:layout_weight="0.16" >
+        <Button
+            android:id="@+id/startlevel1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/level1"
+            android:layout_gravity="center_horizontal"
+            android:onClick ="startLevel" />
+        
+        <TextView
+            android:id="@+id/level1TextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+			android:layout_gravity="center_horizontal"
+            android:text="Level1" />
 
-            <Button
-                android:id="@+id/button1"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignParentTop="true"
-                android:layout_centerHorizontal="true"
-                android:layout_marginTop="102dp"
-                android:onClick="startInfiniteMode"
-                android:text="Infinite Mode" />
+        <Button
+            android:id="@+id/startlevel2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/level2"
+            android:layout_gravity="center_horizontal"
+            android:onClick ="startLevel" />
 
-            <Button
-                android:id="@+id/startlevel1"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_below="@+id/button1"
-                android:layout_marginRight="19dp"
-                android:layout_marginTop="100dp"
-                android:layout_toLeftOf="@+id/button1"
-                android:onClick="startLevel"
-                android:text="Level 1" />
-
-            <Button
-                android:id="@+id/startLevel2"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignLeft="@+id/startlevel1"
-                android:layout_below="@+id/startlevel1"
-                android:layout_marginTop="100dp"
-                android:onClick="startLevel"
-                android:text="Level 2" />
-            
-            <Button
-                android:id="@+id/startLevel3"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignLeft="@+id/startLevel2"
-                android:layout_below="@+id/startLevel2"
-                android:layout_marginTop="100dp"
-                android:onClick="startLevel"
-                android:text="Level 3" />
-            
-             <Button
-                android:id="@+id/startLevel4"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignLeft="@+id/startLevel3"
-                android:layout_below="@+id/startLevel3"
-                android:layout_marginTop="100dp"
-                android:onClick="startLevel"
-                android:text="Level 4" />
-             
-             
-                          <Button
-                android:id="@+id/startLevel5"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignLeft="@+id/startLevel4"
-                android:layout_below="@+id/startLevel4"
-                android:layout_marginTop="100dp"
-                android:onClick="startLevel"
-                android:text="Level 5" />
-
+        <TextView
+            android:id="@+id/level2TextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:text="Level2" />
+                
+        <Button
+            android:id="@+id/startlevel3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/level3"
+            android:layout_gravity="center_horizontal"
+            android:onClick ="startLevel" />
+        
             <TextView
-                android:id="@+id/level1TextView"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignBaseline="@+id/startlevel1"
-                android:layout_alignBottom="@+id/startlevel1"
-                android:layout_toRightOf="@+id/startLevel2"
-                android:text="TextView" />
+            android:id="@+id/level3TextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:text="Level3"
+             />
 
-            <Button
-                android:id="@+id/button2"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignParentBottom="true"
-                android:layout_centerHorizontal="true"
-                android:layout_below="@+id/startLevel5"
-                android:layout_marginTop="100dp"                android:onClick="resetDatabase"
-                android:text="Datenbank zurücksetzen" />
+        <Button
+            android:id="@+id/startlevel4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/level4"
+            android:layout_gravity="center_horizontal"
+            android:onClick ="startLevel" />
+        
+        <TextView
+            android:id="@+id/level4TextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:text="Level4" />
+    </LinearLayout>
 
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical" >
+    
+        <Button
+            android:id="@+id/RinfiniteMode"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:layout_marginBottom="25dp"
+            android:layout_gravity="center_horizontal"
+            android:background="@drawable/infinitemode"
+            android:onClick="startInfiniteMode" />
+
+        <Button
+            android:id="@+id/Rstartlevel1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/level1"
+            android:layout_gravity="center_horizontal"
+            android:onClick ="startLevel" />
+        
+        <TextView
+            android:id="@+id/Rlevel1TextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+			android:layout_gravity="center_horizontal"
+            android:text="Level1" />
+
+        <Button
+            android:id="@+id/Rstartlevel2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/level2"
+            android:layout_gravity="center_horizontal"
+            android:onClick ="startLevel" />
+
+        <TextView
+            android:id="@+id/Rlevel2TextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:text="Level2" />
+                
+        <Button
+            android:id="@+id/Rstartlevel3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/level3"
+            android:layout_gravity="center_horizontal"
+            android:onClick ="startLevel" />
+        
             <TextView
-                android:id="@+id/level2TextView"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignBaseline="@+id/startLevel2"
-                android:layout_alignBottom="@+id/startLevel2"
-                android:layout_alignLeft="@+id/level1TextView"
-                android:text="TextView" />
-        </RelativeLayout>
-    </ScrollView>
+            android:id="@+id/Rlevel3TextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:text="Level3"
+            />
+
+        <Button
+            android:id="@+id/Rstartlevel4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/level4"
+            android:layout_gravity="center_horizontal"
+            android:onClick ="startLevel" />
+        
+        <TextView
+            android:id="@+id/Rlevel4TextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:text="Level4" />
+    
+    </LinearLayout>
 
 </LinearLayout>

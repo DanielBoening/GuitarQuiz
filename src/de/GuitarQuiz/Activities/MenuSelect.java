@@ -72,13 +72,13 @@ public class MenuSelect extends Activity implements OnClickListener {
 		case R.id.startlevel1:
 			level = 1;
 			break;
-		case R.id.startLevel2:
+		case R.id.startlevel2:
 			level = 2;
 			break;
-		case R.id.startLevel3:
+		case R.id.startlevel3:
 			level = 1;
 			break;
-		case R.id.startLevel4:
+		case R.id.startlevel4:
 			level = 1;
 			break;
 
