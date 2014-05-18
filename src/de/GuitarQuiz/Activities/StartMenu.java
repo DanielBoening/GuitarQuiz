@@ -61,6 +61,7 @@ public class StartMenu extends Activity {
 	}
 	
 	public void settings(View v){
+		Settings.setUserDataBase(userData);
 		Intent myIntent = new Intent(StartMenu.this, Settings.class);
 		StartMenu.this.startActivity(myIntent);
 	}

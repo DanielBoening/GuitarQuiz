@@ -61,20 +61,20 @@ public class Quiz extends Activity {
 
 		setContentView(R.layout.quiz);
 		// creatChords();
-		
+
 		progressBar = (ProgressBar) findViewById(R.id.QuizProgressBar);
 		progressBar.setMax(100);
-//		Toast.makeText(getApplicationContext(), "1", Toast.LENGTH_SHORT).show();
-		if(level == 0){
+		// Toast.makeText(getApplicationContext(), "1",
+		// Toast.LENGTH_SHORT).show();
+		if (level == 0) {
 			setupInfiniteMode();
-		}
-		else{
+		} else {
 			setupLevelMode();
 		}
 		inagameChords.addAll(chords);
-//		inagameChords.addAll(chords);
+		// inagameChords.addAll(chords);
 		ALL_ROUNDS = inagameChords.size();
-//		ALL_ROUNDS = 2;
+		// ALL_ROUNDS = 2;
 
 	}
 
@@ -82,7 +82,7 @@ public class Quiz extends Activity {
 		progressBar.setVisibility(View.VISIBLE);
 		infiniteMode = false;
 		chords = ChordLibrary.createChordList(level);
-		defaultText = "Level "+level;
+		defaultText = "Level " + level;
 	}
 
 	private void setupInfiniteMode() {
@@ -135,8 +135,6 @@ public class Quiz extends Activity {
 					rightButton.setBackgroundResource(R.drawable.answerbutton);
 					buttonIsGreen = false;
 				}
-
-
 
 			} catch (Exception e) {
 				e.printStackTrace();
@@ -285,20 +283,38 @@ public class Quiz extends Activity {
 	private void prepareForNextRound() {
 
 		TextView t = (TextView) findViewById(R.id.textView1);
-		
+
 		updateProgressBar();
-		if(infiniteMode){
-			defaultText = "Infinite Mode "+rightAnswers+"/"+(rightAnswers+falseAnswers);
-			
+		if (infiniteMode) {
+			defaultText = "Infinite Mode " + rightAnswers + "/"
+					+ (rightAnswers + falseAnswers);
+
 		}
 		// Check for Game Over
 		if (round >= ALL_ROUNDS && !infiniteMode) {
+
 			userDataBase.load(this);
-			userDataBase.updateHighScore(level, rightAnswers); // Bestes Ergebnis speichern
-			t.setText("Game Over!!! ("+rightAnswers+"/"+ALL_ROUNDS+")");
-			
-			// Weiterleitung an nï¿½chste Activity
-			
+
+			// New HighScore
+
+			boolean newHighScore = userDataBase.getHighScore(level) < rightAnswers;
+
+			if (newHighScore) {
+				GameOver.setNewHighScore(true);
+			} else {
+				GameOver.setNewHighScore(false);
+			}
+
+			userDataBase.updateHighScore(level, rightAnswers); // Bestes
+																// Ergebnis
+																// speichern
+			t.setText("Game Over!!! (" + rightAnswers + "/" + ALL_ROUNDS + ")");
+
+			GameOver.setFalseAnswers(falseAnswers);
+			GameOver.setRightAnswers(rightAnswers);
+			GameOver.setLevel(level);
+
+			// Weiterleitung an nächste Activity
 			Intent myIntent = new Intent(Quiz.this, GameOver.class);
 			Quiz.this.startActivity(myIntent);
 
@@ -314,12 +330,12 @@ public class Quiz extends Activity {
 				b.setBackgroundResource(R.drawable.answerbutton);
 			}
 
-//			Chord randomChord = chords
-//					.get((new Random()).nextInt(chords.size()));
-			
-			Chord randomChord = chords
-					.get((new Random()).nextInt(inagameChords.size()));
-			
+			// Chord randomChord = chords
+			// .get((new Random()).nextInt(chords.size()));
+
+			Chord randomChord = chords.get((new Random()).nextInt(inagameChords
+					.size()));
+
 			inagameChords.remove(randomChord);
 			rightChordItem = randomChord;
 			// Toast.makeText(getApplicationContext(),
@@ -334,11 +350,11 @@ public class Quiz extends Activity {
 			t.setText(defaultText);
 		}
 	}
-	
-	public static void setLevel(int l){
+
+	public static void setLevel(int l) {
 		level = l;
 	}
-	
+
 	/*
 	 * protected void creatChords() { addChord(names[0], fingers[0],
 	 * isPlayed[0]); addChord(names[1], fingers[1], isPlayed[1]);
