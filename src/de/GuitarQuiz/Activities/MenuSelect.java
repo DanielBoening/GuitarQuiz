@@ -10,7 +10,7 @@ import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
 import android.widget.Button;
-import android.widget.TextView;
+import android.widget.ImageView;
 
 import com.MusikMonksSolution.guitarquiz.R;
 
@@ -29,6 +29,8 @@ public class MenuSelect extends Activity implements OnClickListener {
 	Button buttonStartLevel3;
 	Button buttonStartLevel4;
 	Button buttonStartLevel5;
+	
+	ImageView[] menuButtonView = new ImageView[7];
 
 	/** Called when the activity is first created. */
 	@Override
@@ -56,6 +58,14 @@ public class MenuSelect extends Activity implements OnClickListener {
 		buttonStartLevel4 = (Button) findViewById(R.id.startlevel4);
 		buttonStartLevel5 = (Button) findViewById(R.id.startlevel5);
 		
+		menuButtonView[0] = (ImageView) findViewById(R.id.select_label_infinite);
+		menuButtonView[1] = (ImageView) findViewById(R.id.select_label_1);
+		menuButtonView[2] = (ImageView) findViewById(R.id.select_label_2);
+		menuButtonView[3] = (ImageView) findViewById(R.id.select_label_3);
+		menuButtonView[4] = (ImageView) findViewById(R.id.select_label_4);
+		menuButtonView[5] = (ImageView) findViewById(R.id.select_label_5);
+		
+		
 		int medalScore1 = chordsLibrary.getMedal(1, userDataBase.getHighScore(1));
 		int medalScore2 = chordsLibrary.getMedal(2, userDataBase.getHighScore(2));
 		int medalScore3 = chordsLibrary.getMedal(3, userDataBase.getHighScore(3));
@@ -82,6 +92,7 @@ public class MenuSelect extends Activity implements OnClickListener {
 			int lastMedal = chordsLibrary.getMedal(level, userDataBase.getHighScore(level));
 			if(lastMedal==0){
 				button.setBackgroundResource(R.drawable.lockedlevel);
+				menuButtonView[level+1].setVisibility(View.INVISIBLE);
 			}
 		}
 	}
@@ -92,7 +103,7 @@ public class MenuSelect extends Activity implements OnClickListener {
 		super.onResume();
 //		level1View.setText("HighScore: " + userDataBase.getHighScore(1));
 //		level2View.setText("HighScore: " + userDataBase.getHighScore(2));
-
+		initialiseLevelButtons();
 	}
 
 	public void resetDatabase(View v) {

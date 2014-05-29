@@ -2,179 +2,341 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical" 
-	android:background="#FFF7E7"	>
-	
+    android:background="#FFF7E7"
+    android:orientation="vertical" >
+
     <Button
-            android:id="@+id/infiniteMode"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_horizontal"
-            android:background="@drawable/levelselecttopline" />
-        <ScrollView
+        android:id="@+id/infiniteMode"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:background="@drawable/levelselecttopline" />
+
+    <ScrollView
         android:id="@+id/scrollView"
         android:layout_width="fill_parent"
         android:layout_height="fill_parent" >
-	<LinearLayout
-        android:layout_width="320dp"
-        android:layout_height="match_parent"
-        android:orientation="horizontal" >
-    
-    <LinearLayout
-        android:layout_width="160dp"
-        android:layout_height="match_parent"
-        android:orientation="vertical" >
 
-        
-      <RelativeLayout
-      android:layout_width="fill_parent"
-      android:layout_height="wrap_content"
-     >      
-        
-        <Button
-            android:id="@+id/infiniteMode"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="60dp"
-            android:layout_marginBottom="22dp"
-            android:layout_gravity="center_horizontal"
-			android:layout_centerHorizontal="true" 
-            android:background="@drawable/level"
-            android:onClick="startInfiniteMode" />
-     <ImageView
-         android:id="@+id/outside_imageview"
-         android:layout_width="wrap_content"
-         android:layout_height="wrap_content"
-         android:layout_alignTop="@id/infiniteMode"
-         android:layout_alignBottom="@id/infiniteMode"  
-         android:layout_alignLeft="@id/infiniteMode"
-         android:layout_alignRight="@id/infiniteMode"  
-         android:background="@drawable/two"          
- />
-       </RelativeLayout>
-        <Button
-            android:id="@+id/startlevel1"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:background="@drawable/level"
-            android:layout_gravity="center_horizontal"
-            android:layout_marginTop="40dp"
-            android:onClick ="startLevel" />
+        <LinearLayout
+            android:layout_width="320dp"
+            android:layout_height="match_parent"
+            android:orientation="horizontal" >
 
-        <Button
-            android:id="@+id/startlevel2"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:background="@drawable/level"
-            android:layout_gravity="center_horizontal"
-            android:layout_marginTop="40dp"
-            android:onClick ="startLevel" />
-                
-        <Button
-            android:id="@+id/startlevel3"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:background="@drawable/level"
-            android:layout_gravity="center_horizontal"
-            android:layout_marginTop="40dp"
-            android:onClick ="startLevel" />
-        
+            <LinearLayout
+                android:layout_width="160dp"
+                android:layout_height="match_parent"
+                android:orientation="vertical" >
 
+                <RelativeLayout
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content" >
 
-        <Button
-            android:id="@+id/startlevel4"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:background="@drawable/level"
-            android:layout_marginTop="40dp"
-            android:layout_gravity="center_horizontal"
-            android:onClick ="startLevel" />
-        
-        
-		<Button
-            android:id="@+id/startlevel5"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:background="@drawable/level"
-            android:layout_marginTop="40dp"
-            android:layout_gravity="center_horizontal"
-            android:onClick ="startLevel" />
-        
+                    <Button
+                        android:id="@+id/infiniteMode"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerHorizontal="true"
+                        android:layout_gravity="center_horizontal"
+                        android:layout_marginBottom="22dp"
+                        android:layout_marginTop="60dp"
+                        android:background="@drawable/level"
+                        android:onClick="startInfiniteMode" />
 
-    </LinearLayout>
+                    <ImageView
+                        android:id="@+id/select_label_infinite"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignBottom="@id/infiniteMode"
+                        android:layout_alignLeft="@id/infiniteMode"
+                        android:layout_alignRight="@id/infiniteMode"
+                        android:layout_alignTop="@id/infiniteMode"
+                        android:background="@drawable/infinite" />
+                </RelativeLayout>
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical" >
-    
-        <Button
-            android:id="@+id/RinfiniteMode"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="60dp"
-            android:layout_marginBottom="25dp"
-            android:layout_gravity="center_horizontal"
-            android:background="@drawable/level"
-            android:onClick="startInfiniteMode" />
+                <RelativeLayout
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content" >
 
-        <Button
-            android:id="@+id/Rstartlevel1"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:background="@drawable/level"
-            android:layout_gravity="center_horizontal"
-            android:layout_below="@+id/RinfiniteMode"
-            android:layout_marginTop="40dp"
-            android:onClick ="startLevel" />
+                    <Button
+                        android:id="@+id/startlevel1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerHorizontal="true"
+                        android:layout_gravity="center_horizontal"
+                        android:layout_marginTop="40dp"
+                        android:background="@drawable/level"
+                        android:onClick="startLevel" />
 
-        <Button
-            android:id="@+id/Rstartlevel2"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:background="@drawable/level"
-            android:layout_gravity="center_horizontal"
-            android:layout_below="@+id/Rlevel1TextView"
-            android:layout_marginTop="40dp"
-            android:onClick ="startLevel" />
-                
-        <Button
-            android:id="@+id/Rstartlevel3"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:background="@drawable/level"
-            android:layout_gravity="center_horizontal"
-            android:layout_below="@+id/Rlevel2TextView"
-            android:layout_marginTop="40dp"
-            android:onClick ="startLevel" />
-        
+                    <ImageView
+                        android:id="@+id/select_label_1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignBottom="@id/startlevel1"
+                        android:layout_alignLeft="@id/startlevel1"
+                        android:layout_alignRight="@id/startlevel1"
+                        android:layout_alignTop="@id/startlevel1"
+                        android:background="@drawable/one" />
+                </RelativeLayout>
 
+                <RelativeLayout
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content" >
 
-        <Button
-            android:id="@+id/Rstartlevel4"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:background="@drawable/level"
-            android:layout_gravity="center_horizontal"
-            android:layout_below="@+id/Rlevel3TextView"
-            android:layout_marginTop="40dp"
-            android:onClick ="startLevel" />
-        
-        
-                <Button
-            android:id="@+id/Rstartlevel5"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:background="@drawable/level"
-            android:layout_gravity="center_horizontal"
-            android:layout_below="@+id/Rlevel4TextView"
-            android:layout_marginTop="40dp"
-            android:onClick ="startLevel" />
-        
+                    <Button
+                        android:id="@+id/startlevel2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerHorizontal="true"
+                        android:layout_gravity="center_horizontal"
+                        android:layout_marginTop="40dp"
+                        android:background="@drawable/level"
+                        android:onClick="startLevel" />
 
-    
-    </LinearLayout>
+                    <ImageView
+                        android:id="@+id/select_label_2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignBottom="@id/startlevel2"
+                        android:layout_alignLeft="@id/startlevel2"
+                        android:layout_alignRight="@id/startlevel2"
+                        android:layout_alignTop="@id/startlevel2"
+                        android:background="@drawable/two" />
+                </RelativeLayout>
 
-</LinearLayout>
-</ScrollView>
+                <RelativeLayout
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content" >
+
+                    <Button
+                        android:id="@+id/startlevel3"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerHorizontal="true"
+                        android:layout_gravity="center_horizontal"
+                        android:layout_marginTop="40dp"
+                        android:background="@drawable/level"
+                        android:onClick="startLevel" />
+
+                    <ImageView
+                        android:id="@+id/select_label_3"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignBottom="@id/startlevel3"
+                        android:layout_alignLeft="@id/startlevel3"
+                        android:layout_alignRight="@id/startlevel3"
+                        android:layout_alignTop="@id/startlevel3"
+                        android:background="@drawable/three" />
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content" >
+
+                    <Button
+                        android:id="@+id/startlevel4"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerHorizontal="true"
+                        android:layout_gravity="center_horizontal"
+                        android:layout_marginTop="40dp"
+                        android:background="@drawable/level"
+                        android:onClick="startLevel" />
+
+                    <ImageView
+                        android:id="@+id/select_label_4"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignBottom="@id/startlevel4"
+                        android:layout_alignLeft="@id/startlevel4"
+                        android:layout_alignRight="@id/startlevel4"
+                        android:layout_alignTop="@id/startlevel4"
+                        android:layout_gravity="center_horizontal"
+                        android:background="@drawable/four" />
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content" >
+
+                    <Button
+                        android:id="@+id/startlevel5"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerHorizontal="true"
+                        android:layout_gravity="center_horizontal"
+                        android:layout_marginTop="40dp"
+                        android:background="@drawable/level"
+                        android:onClick="startLevel" />
+
+                    <ImageView
+                        android:id="@+id/select_label_5"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignBottom="@id/startlevel5"
+                        android:layout_alignLeft="@id/startlevel5"
+                        android:layout_alignRight="@id/startlevel5"
+                        android:layout_alignTop="@id/startlevel5"
+                        android:background="@drawable/five" />
+                </RelativeLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical" >
+
+                <RelativeLayout
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content" >
+
+                    <Button
+                        android:id="@+id/RinfiniteMode"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerHorizontal="true"
+                        android:layout_gravity="center_horizontal"
+                        android:layout_marginBottom="25dp"
+                        android:layout_marginTop="60dp"
+                        android:background="@drawable/level"
+                        android:onClick="startInfiniteMode" />
+
+                    <ImageView
+                        android:id="@+id/outside_imageview"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignBottom="@id/RinfiniteMode"
+                        android:layout_alignLeft="@id/RinfiniteMode"
+                        android:layout_alignRight="@id/RinfiniteMode"
+                        android:layout_alignTop="@id/RinfiniteMode"
+                        android:background="@drawable/infinite" />
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content" >
+
+                    <Button
+                        android:id="@+id/Rstartlevel1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerHorizontal="true"
+                        android:layout_gravity="center_horizontal"
+                        android:layout_marginTop="40dp"
+                        android:background="@drawable/level"
+                        android:onClick="startLevel" />
+
+                    <ImageView
+                        android:id="@+id/outside_imageview"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignBottom="@id/Rstartlevel1"
+                        android:layout_alignLeft="@id/Rstartlevel1"
+                        android:layout_alignRight="@id/Rstartlevel1"
+                        android:layout_alignTop="@id/Rstartlevel1"
+                        android:background="@drawable/one" />
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content" >
+
+                    <Button
+                        android:id="@+id/Rstartlevel2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerHorizontal="true"
+                        android:layout_gravity="center_horizontal"
+                        android:layout_marginTop="40dp"
+                        android:background="@drawable/level"
+                        android:onClick="startLevel" />
+
+                    <ImageView
+                        android:id="@+id/outside_imageview"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignBottom="@id/Rstartlevel2"
+                        android:layout_alignLeft="@id/Rstartlevel2"
+                        android:layout_alignRight="@id/Rstartlevel2"
+                        android:layout_alignTop="@id/Rstartlevel2"
+                        android:background="@drawable/two" />
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content" >
+
+                    <Button
+                        android:id="@+id/Rstartlevel3"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerHorizontal="true"
+                        android:layout_gravity="center_horizontal"
+                        android:layout_marginTop="40dp"
+                        android:background="@drawable/level"
+                        android:onClick="startLevel" />
+
+                    <ImageView
+                        android:id="@+id/outside_imageview"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignBottom="@id/Rstartlevel3"
+                        android:layout_alignLeft="@id/Rstartlevel3"
+                        android:layout_alignRight="@id/Rstartlevel3"
+                        android:layout_alignTop="@id/Rstartlevel3"
+                        android:background="@drawable/three" />
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content" >
+
+                    <Button
+                        android:id="@+id/Rstartlevel4"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerHorizontal="true"
+                        android:layout_gravity="center_horizontal"
+                        android:layout_marginTop="40dp"
+                        android:background="@drawable/level"
+                        android:onClick="startLevel" />
+
+                    <ImageView
+                        android:id="@+id/outside_imageview"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignBottom="@id/Rstartlevel4"
+                        android:layout_alignLeft="@id/Rstartlevel4"
+                        android:layout_alignRight="@id/Rstartlevel4"
+                        android:layout_alignTop="@id/Rstartlevel4"
+                        android:background="@drawable/four" />
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content" >
+
+                    <Button
+                        android:id="@+id/Rstartlevel5"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerHorizontal="true"
+                        android:layout_gravity="center_horizontal"
+                        android:layout_marginTop="40dp"
+                        android:background="@drawable/level"
+                        android:onClick="startLevel" />
+
+                    <ImageView
+                        android:id="@+id/outside_imageview"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignBottom="@id/Rstartlevel5"
+                        android:layout_alignLeft="@id/Rstartlevel5"
+                        android:layout_alignRight="@id/Rstartlevel5"
+                        android:layout_alignTop="@id/Rstartlevel5"
+                        android:background="@drawable/five" />
+                </RelativeLayout>
+            </LinearLayout>
+        </LinearLayout>
+    </ScrollView>
+
 </LinearLayout>
