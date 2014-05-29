@@ -28,6 +28,7 @@ public class MenuSelect extends Activity implements OnClickListener {
 	Button buttonStartLevel2;
 	Button buttonStartLevel3;
 	Button buttonStartLevel4;
+	Button buttonStartLevel5;
 
 	/** Called when the activity is first created. */
 	@Override
@@ -53,24 +54,35 @@ public class MenuSelect extends Activity implements OnClickListener {
 		buttonStartLevel2 = (Button) findViewById(R.id.startlevel2);
 		buttonStartLevel3 = (Button) findViewById(R.id.startlevel3);
 		buttonStartLevel4 = (Button) findViewById(R.id.startlevel4);
+		buttonStartLevel5 = (Button) findViewById(R.id.startlevel5);
 		
 		int medalScore1 = chordsLibrary.getMedal(1, userDataBase.getHighScore(1));
 		int medalScore2 = chordsLibrary.getMedal(2, userDataBase.getHighScore(2));
 		int medalScore3 = chordsLibrary.getMedal(3, userDataBase.getHighScore(3));
 		int medalScore4 = chordsLibrary.getMedal(4, userDataBase.getHighScore(4));
+		int highScore = userDataBase.getHighScore(5);
+//		int medalScore5 = chordsLibrary.getMedal(5, highScore);
 		
 		
-		updateButtonImage(buttonStartLevel1, medalScore1);
-		updateButtonImage(buttonStartLevel2, medalScore2);
-		updateButtonImage(buttonStartLevel3, medalScore3);
-		updateButtonImage(buttonStartLevel4, medalScore4);
+		updateButtonImage(buttonStartLevel1, medalScore1, 1);
+		updateButtonImage(buttonStartLevel2, medalScore2, 2);
+		updateButtonImage(buttonStartLevel3, medalScore3, 3);
+		updateButtonImage(buttonStartLevel4, medalScore4, 4);
+//		updateButtonImage(buttonStartLevel5, medalScore5, 5);
 		
 	}
 
-	private void updateButtonImage(Button button, int medalScore) {
+	private void updateButtonImage(Button button, int medalScore, int level) {
 		if(medalScore != 0){
 		int medalImage = chordsLibrary.getMedalImageSmall(medalScore);
 		button.setBackgroundResource(medalImage);
+		}
+		if(level != 1){
+			level--; // Last Level
+			int lastMedal = chordsLibrary.getMedal(level, userDataBase.getHighScore(level));
+			if(lastMedal==0){
+				button.setBackgroundResource(R.drawable.lockedlevel);
+			}
 		}
 	}
 
