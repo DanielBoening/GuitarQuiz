@@ -76,7 +76,7 @@ private static int[][] fingersLevel3 = {
 	};
 
 
-	private static int[][] isPlayedLevel3 = { { 0, 2, 2, 2, 0, 0 }, // G7
+	private static int[][] isPlayedLevel3 = { 
 			{ 2, 2, 0, 0, 2, 1}, 	// Asus2
 			{ 2, 0, 0, 0, 2, 1}, 	// Asus4
 			{ 2, 0, 0, 2, 1, 1}, 	// Dsus2
@@ -224,16 +224,16 @@ private static int[][] fingersLevel4 = {
 	}
 	
 	public int getMedalImage(int medal) {
-		int image = R.drawable.infinitemode;
+		int image = R.drawable.nomedal;
 		switch (medal) {
 		case 1: // Bronze
-			image = R.drawable.bronzemedal;
+			image = R.drawable.bronzemedalbig;
 			break;
 		case 2: // Silver
-			image = R.drawable.silvermedal;
+			image = R.drawable.silvermedalbig;
 			break;
 		case 3: // Gold
-			image = R.drawable.goldmedal;
+			image = R.drawable.goldmedalbig;
 			break;
 		}
 

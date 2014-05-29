@@ -69,7 +69,7 @@ public class MenuSelect extends Activity implements OnClickListener {
 
 	private void updateButtonImage(Button button, int medalScore) {
 		if(medalScore != 0){
-		int medalImage = chordsLibrary.getMedalImage(medalScore);
+		int medalImage = chordsLibrary.getMedalImageSmall(medalScore);
 		button.setBackgroundResource(medalImage);
 		}
 	}
