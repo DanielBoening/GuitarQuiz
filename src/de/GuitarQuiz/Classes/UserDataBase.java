@@ -28,6 +28,10 @@ public class UserDataBase {
 		}
 	}
 	
+	public int getPossibleScore(int level){
+		return ChordLibrary.createChordList(level).size();
+	}
+	
 	public int getHighScore(int level){
 		return highScore[level];
 	}

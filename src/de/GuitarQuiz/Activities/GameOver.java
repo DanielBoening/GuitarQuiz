@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
+import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 
@@ -27,7 +28,8 @@ public class GameOver extends Activity {
 	TextView ViewFalseAnswers;
 	TextView ViewLevel;
 	TextView ViewGameOver;
-	TextView ViewMedal;
+	TextView MedalText;
+	ImageView ViewMedal;
 
 
 
@@ -72,8 +74,8 @@ public class GameOver extends Activity {
 	private void printProgress() {
 		int progress = calculateProgress();
 		setProgressBar(progress);
-		ViewRightAnswers.setText("Richtige Antworten: "+rightAnswers);
-		ViewFalseAnswers.setText("Falsche Antworten: "+falseAnswers);
+		ViewRightAnswers.setText("Right Answers: "+rightAnswers);
+		ViewFalseAnswers.setText("False Answers: "+falseAnswers);
 		ViewLevel.setText("Level "+level);
 		if(newHighScore){
 			ViewGameOver.setText("New High Score!");
@@ -82,8 +84,10 @@ public class GameOver extends Activity {
 			ViewGameOver.setText("Game Over");
 		}
 		int medal = chordsLibrary.getMedal(level, rightAnswers);
-		String medalText = chordsLibrary.getMedalText(medal);
-		ViewMedal.setText("Medallie: "+medalText);
+		int medalImage = chordsLibrary.getMedalImage(medal);
+		ViewMedal.setImageResource(medalImage);
+		MedalText.setText(chordsLibrary.getMedalText(medal));
+		
 	}
 
 	private void initialiseLayoutVars() {
@@ -92,7 +96,8 @@ public class GameOver extends Activity {
 		ViewFalseAnswers = (TextView) findViewById(R.id.GO_falseAnswers);
 		ViewLevel = (TextView) findViewById(R.id.GO_Level);
 		ViewGameOver = (TextView) findViewById(R.id.GO_GameOver);
-		ViewMedal  = (TextView) findViewById(R.id.GO_medal);
+		ViewMedal = (ImageView) findViewById(R.id.GameOver_MedalView);
+		MedalText = (TextView) findViewById(R.id.GameOver_medalText);
 		
 	}
 

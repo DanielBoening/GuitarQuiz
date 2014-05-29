@@ -1,8 +1,5 @@
 package de.GuitarQuiz.Activities;
 
-import com.MusikMonksSolution.guitarquiz.R;
-
-import de.GuitarQuiz.Classes.UserDataBase;
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
@@ -12,12 +9,25 @@ import android.os.Bundle;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
+import android.widget.Button;
 import android.widget.TextView;
+
+import com.MusikMonksSolution.guitarquiz.R;
+
+import de.GuitarQuiz.Classes.ChordLibrary;
+import de.GuitarQuiz.Classes.UserDataBase;
 
 public class MenuSelect extends Activity implements OnClickListener {
 	private UserDataBase userDataBase = new UserDataBase();
 	TextView level1View;
 	TextView level2View;
+	private ChordLibrary chordsLibrary = new ChordLibrary();
+
+	
+	Button buttonStartLevel1;
+	Button buttonStartLevel2;
+	Button buttonStartLevel3;
+	Button buttonStartLevel4;
 
 	/** Called when the activity is first created. */
 	@Override
@@ -33,7 +43,35 @@ public class MenuSelect extends Activity implements OnClickListener {
 		userDataBase.load(this);
 		level1View = (TextView) findViewById(R.id.level1TextView);
 		level2View = (TextView) findViewById(R.id.level2TextView);
+		initialiseLevelButtons();
 
+
+	}
+
+	private void initialiseLevelButtons() {
+		buttonStartLevel1 = (Button) findViewById(R.id.startlevel1);
+		buttonStartLevel2 = (Button) findViewById(R.id.startlevel2);
+		buttonStartLevel3 = (Button) findViewById(R.id.startlevel3);
+		buttonStartLevel4 = (Button) findViewById(R.id.startlevel4);
+		
+		int medalScore1 = chordsLibrary.getMedal(1, userDataBase.getHighScore(1));
+		int medalScore2 = chordsLibrary.getMedal(2, userDataBase.getHighScore(2));
+		int medalScore3 = chordsLibrary.getMedal(3, userDataBase.getHighScore(3));
+		int medalScore4 = chordsLibrary.getMedal(4, userDataBase.getHighScore(4));
+		
+		
+		updateButtonImage(buttonStartLevel1, medalScore1);
+		updateButtonImage(buttonStartLevel2, medalScore2);
+		updateButtonImage(buttonStartLevel3, medalScore3);
+		updateButtonImage(buttonStartLevel4, medalScore4);
+		
+	}
+
+	private void updateButtonImage(Button button, int medalScore) {
+		if(medalScore != 0){
+		int medalImage = chordsLibrary.getMedalImage(medalScore);
+		button.setBackgroundResource(medalImage);
+		}
 	}
 
 	@Override

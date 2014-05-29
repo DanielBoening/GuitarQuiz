@@ -2,6 +2,8 @@ package de.GuitarQuiz.Classes;
 
 import java.util.ArrayList;
 
+import com.MusikMonksSolution.guitarquiz.R;
+
 public class ChordLibrary {
 	/*
 	 * ########## Legende ########## X^=1 O^=2
@@ -207,18 +209,52 @@ private static int[][] fingersLevel4 = {
 		String text = "No Medal";
 		switch (medal) {
 		case 1:
-			text = "Bronze";
+			text = "Bronze Medal";
 			break;
 		case 2:
-			text = "Silver";
+			text = "Silver Medal";
 			break;
 		case 3:
-			text = "Gold";
+			text = "Gold Medal";
 			break;
 
 		}
 
 		return text;
-
 	}
-}
+	
+	public int getMedalImage(int medal) {
+		int image = R.drawable.infinitemode;
+		switch (medal) {
+		case 1: // Bronze
+			image = R.drawable.bronzemedal;
+			break;
+		case 2: // Silver
+			image = R.drawable.silvermedal;
+			break;
+		case 3: // Gold
+			image = R.drawable.goldmedal;
+			break;
+		}
+
+		return image;
+	}
+
+
+
+public int getMedalImageSmall(int medal) {
+	int image = R.drawable.infinitemode;
+	switch (medal) {
+	case 1: // Bronze
+		image = R.drawable.bronzemedal;
+		break;
+	case 2: // Silver
+		image = R.drawable.silvermedal;
+		break;
+	case 3: // Gold
+		image = R.drawable.goldmedal;
+		break;
+	}
+
+	return image;
+}}

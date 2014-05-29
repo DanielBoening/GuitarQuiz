@@ -48,7 +48,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignBottom="@+id/GO_progressBar"
-        android:layout_alignLeft="@+id/GO_medal"
+        android:layout_centerHorizontal="true"
         android:text="Fortschritt"
         android:textAppearance="?android:attr/textAppearanceMedium" />
 
@@ -60,24 +60,33 @@
         android:layout_centerHorizontal="true"
         android:text="Level" />
 
-    <TextView
-        android:id="@+id/GO_medal"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/GO_falseAnswers"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="71dp"
-        android:text="Medallie"
-        android:textAppearance="?android:attr/textAppearanceLarge" />
-
             <Button
                 android:id="@+id/newGame"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_below="@+id/GO_medal"
+                android:layout_alignParentBottom="true"
                 android:layout_centerHorizontal="true"
-                android:layout_marginTop="24dp"
+                android:layout_marginBottom="20dp"
                 android:background="@drawable/newgame"
                 android:onClick="newGame" />
+
+            <ImageView
+                android:id="@+id/GameOver_MedalView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/GO_falseAnswers"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="17dp"
+                android:src="@drawable/infinitemode" />
+
+            <TextView
+                android:id="@+id/GameOver_medalText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_above="@+id/newGame"
+                android:layout_marginBottom="20dp"
+                android:layout_centerHorizontal="true"
+                android:text="Medium Text"
+                android:textAppearance="?android:attr/textAppearanceMedium" />
 
 </RelativeLayout>
