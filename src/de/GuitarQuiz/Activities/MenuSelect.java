@@ -19,8 +19,8 @@ import de.GuitarQuiz.Classes.UserDataBase;
 
 public class MenuSelect extends Activity implements OnClickListener {
 	private UserDataBase userDataBase = new UserDataBase();
-	TextView level1View;
-	TextView level2View;
+//	TextView level1View;
+//	TextView level2View;
 	private ChordLibrary chordsLibrary = new ChordLibrary();
 
 	
@@ -41,8 +41,8 @@ public class MenuSelect extends Activity implements OnClickListener {
 		setContentView(R.layout.menuselect);
 
 		userDataBase.load(this);
-		level1View = (TextView) findViewById(R.id.level1TextView);
-		level2View = (TextView) findViewById(R.id.level2TextView);
+//		level1View = (TextView) findViewById(R.id.level1TextView);
+//		level2View = (TextView) findViewById(R.id.level2TextView);
 		initialiseLevelButtons();
 
 
@@ -78,8 +78,8 @@ public class MenuSelect extends Activity implements OnClickListener {
 	protected void onResume() {
 		// TODO Auto-generated method stub
 		super.onResume();
-		level1View.setText("HighScore: " + userDataBase.getHighScore(1));
-		level2View.setText("HighScore: " + userDataBase.getHighScore(2));
+//		level1View.setText("HighScore: " + userDataBase.getHighScore(1));
+//		level2View.setText("HighScore: " + userDataBase.getHighScore(2));
 
 	}
 
@@ -132,8 +132,8 @@ public class MenuSelect extends Activity implements OnClickListener {
 		switch (which) {
 		case DialogInterface.BUTTON_POSITIVE: // yes
 			userDataBase.resetDataBase();
-			level1View.setText("HighScore: " + userDataBase.getHighScore(1));
-			level2View.setText("HighScore: " + userDataBase.getHighScore(2));
+//			level1View.setText("HighScore: " + userDataBase.getHighScore(1));
+//			level2View.setText("HighScore: " + userDataBase.getHighScore(2));
 			
 			
 			break;

@@ -11,7 +11,10 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
             android:background="@drawable/levelselecttopline" />
-    
+        <ScrollView
+        android:id="@+id/scrollView"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent" >
 	<LinearLayout
         android:layout_width="320dp"
         android:layout_height="match_parent"
@@ -26,7 +29,7 @@
             android:id="@+id/infiniteMode"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
+            android:layout_marginTop="60dp"
             android:layout_marginBottom="22dp"
             android:layout_gravity="center_horizontal"
             android:background="@drawable/level"
@@ -38,14 +41,9 @@
             android:layout_height="wrap_content"
             android:background="@drawable/level"
             android:layout_gravity="center_horizontal"
+            android:layout_below="@+id/infiniteMode"
+            android:layout_marginTop="40dp"
             android:onClick ="startLevel" />
-        
-        <TextView
-            android:id="@+id/level1TextView"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-			android:layout_gravity="center_horizontal"
-            android:text="Level1" />
 
         <Button
             android:id="@+id/startlevel2"
@@ -53,14 +51,9 @@
             android:layout_height="wrap_content"
             android:background="@drawable/level"
             android:layout_gravity="center_horizontal"
+            android:layout_below="@+id/level1TextView"
+            android:layout_marginTop="40dp"
             android:onClick ="startLevel" />
-
-        <TextView
-            android:id="@+id/level2TextView"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_horizontal"
-            android:text="Level2" />
                 
         <Button
             android:id="@+id/startlevel3"
@@ -68,30 +61,23 @@
             android:layout_height="wrap_content"
             android:background="@drawable/level"
             android:layout_gravity="center_horizontal"
+            android:layout_below="@+id/level2TextView"
+            android:layout_marginTop="40dp"
             android:onClick ="startLevel" />
         
-            <TextView
-            android:id="@+id/level3TextView"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_horizontal"
-            android:text="Level3"
-             />
+
 
         <Button
             android:id="@+id/startlevel4"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:background="@drawable/level"
+            android:layout_below="@+id/level3TextView"
+            android:layout_marginTop="40dp"
             android:layout_gravity="center_horizontal"
             android:onClick ="startLevel" />
         
-        <TextView
-            android:id="@+id/level4TextView"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_horizontal"
-            android:text="Level4" />
+
     </LinearLayout>
 
     <LinearLayout
@@ -103,7 +89,7 @@
             android:id="@+id/RinfiniteMode"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
+            android:layout_marginTop="60dp"
             android:layout_marginBottom="25dp"
             android:layout_gravity="center_horizontal"
             android:background="@drawable/level"
@@ -115,14 +101,9 @@
             android:layout_height="wrap_content"
             android:background="@drawable/level"
             android:layout_gravity="center_horizontal"
+            android:layout_below="@+id/RinfiniteMode"
+            android:layout_marginTop="40dp"
             android:onClick ="startLevel" />
-        
-        <TextView
-            android:id="@+id/Rlevel1TextView"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-			android:layout_gravity="center_horizontal"
-            android:text="Level1" />
 
         <Button
             android:id="@+id/Rstartlevel2"
@@ -130,14 +111,9 @@
             android:layout_height="wrap_content"
             android:background="@drawable/level"
             android:layout_gravity="center_horizontal"
+            android:layout_below="@+id/Rlevel1TextView"
+            android:layout_marginTop="40dp"
             android:onClick ="startLevel" />
-
-        <TextView
-            android:id="@+id/Rlevel2TextView"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_horizontal"
-            android:text="Level2" />
                 
         <Button
             android:id="@+id/Rstartlevel3"
@@ -145,15 +121,11 @@
             android:layout_height="wrap_content"
             android:background="@drawable/level"
             android:layout_gravity="center_horizontal"
+            android:layout_below="@+id/Rlevel2TextView"
+            android:layout_marginTop="40dp"
             android:onClick ="startLevel" />
         
-            <TextView
-            android:id="@+id/Rlevel3TextView"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_horizontal"
-            android:text="Level3"
-            />
+
 
         <Button
             android:id="@+id/Rstartlevel4"
@@ -161,16 +133,14 @@
             android:layout_height="wrap_content"
             android:background="@drawable/level"
             android:layout_gravity="center_horizontal"
+            android:layout_below="@+id/Rlevel3TextView"
+            android:layout_marginTop="40dp"
             android:onClick ="startLevel" />
         
-        <TextView
-            android:id="@+id/Rlevel4TextView"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_horizontal"
-            android:text="Level4" />
+
     
     </LinearLayout>
 
 </LinearLayout>
+</ScrollView>
 </LinearLayout>
