@@ -27,7 +27,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="20dp"
-            android:layout_marginBottom="25dp"
+            android:layout_marginBottom="22dp"
             android:layout_gravity="center_horizontal"
             android:background="@drawable/infinitemode"
             android:onClick="startInfiniteMode" />
