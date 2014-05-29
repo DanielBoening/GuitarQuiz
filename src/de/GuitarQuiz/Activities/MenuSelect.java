@@ -76,10 +76,10 @@ public class MenuSelect extends Activity implements OnClickListener {
 			level = 2;
 			break;
 		case R.id.startlevel3:
-			level = 1;
+			level = 3;
 			break;
 		case R.id.startlevel4:
-			level = 1;
+			level = 4;
 			break;
 
 		}

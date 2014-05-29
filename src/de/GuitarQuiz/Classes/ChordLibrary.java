@@ -29,6 +29,8 @@ public class ChordLibrary {
 			{ 2, 0, 2, 0, 0, 1 }, // C
 			{ 2, 0, 0, 0, 2, 1 } // A-Moll
 	};
+	
+	
 
 	/* ########## Level 2 ########## */
 
@@ -50,6 +52,68 @@ public class ChordLibrary {
 
 	};
 
+	
+	
+	/* ########## Level 3 ########## */
+
+	private static String[] namesLevel3 = { 
+		"Asus2", 
+		"Asus4", 
+		"Dsus2", 
+		"Dsus4", 
+		"Esus2",
+		"Esus4", 
+		};
+private static int[][] fingersLevel3 = { 
+		{ 17, 12, 0, 0, 0 }, 	// Asus2
+		{ 17, 12, 0, 8, 0 }, 	// Asus4
+		{ 12, 0, 8, 0, 0 }, 	// Dsus2
+		{ 12, 0, 8, 3, 0 }, 	// Dsus4
+		{ 22, 0, 19, 14, 0 }, 	// Esus2
+		{ 0, 22, 17, 12, 0 }, 	// Esus4
+	};
+
+
+	private static int[][] isPlayedLevel3 = { { 0, 2, 2, 2, 0, 0 }, // G7
+			{ 2, 2, 0, 0, 2, 1}, 	// Asus2
+			{ 2, 0, 0, 0, 2, 1}, 	// Asus4
+			{ 2, 0, 0, 2, 1, 1}, 	// Dsus2
+			{ 0, 0, 0, 2, 1, 1}, 	// Dsus4
+			{ 2, 2, 0, 0, 0, 2}, 	// Esus2
+			{ 2, 2, 0, 0, 0, 2}, 	// Esus4
+	};
+	
+	
+	
+	/* ########## Level 4 ########## */
+
+	private static String[] namesLevel4 = { 
+		"D / F#", 
+		"G / B", 
+		"C / G", 
+		"G 5", 
+		"C 5",
+		};
+private static int[][] fingersLevel4 = { 
+		{ 12, 2, 8, 0, 27 }, 	// D / F
+		{ 0, 22, 0, 3, 0 }, 	// G / B
+		{ 6, 17, 28, 23, 0 }, 	// C / G
+		{ 0, 0, 25, 20, 28 }, 	// G 5
+		{ 0, 0, 20, 15, 23 }, 	// C 5
+	};
+
+
+	private static int[][] isPlayedLevel4 = { 
+		{ 0, 0, 0, 2, 1, 0 }, // D / F
+		{ 0, 2, 2, 2, 0, 1 }, // G / B
+		{ 2, 0, 2, 0, 0, 0 }, // C / G
+		{ 1, 1, 1, 0, 0, 0 }, // G 5
+		{ 1, 1, 0, 0, 0, 1 }, // C5
+
+	};
+	
+	
+	
 	public static ArrayList<Chord> createChordList(int level) {
 		ArrayList<Chord> chords = new ArrayList<Chord>();
 		String[] names = getNames(level);
@@ -80,6 +144,10 @@ public class ChordLibrary {
 			return namesLevel1;
 		case 2:
 			return namesLevel2;
+		case 3:
+			return namesLevel3;
+		case 4:
+			return namesLevel4;
 		default:
 			// TODO
 		}
@@ -92,6 +160,10 @@ public class ChordLibrary {
 			return fingersLevel1;
 		case 2:
 			return fingersLevel2;
+		case 3:
+			return fingersLevel3;
+		case 4:
+			return fingersLevel4;
 		default:
 			// TODO
 		}
@@ -104,6 +176,10 @@ public class ChordLibrary {
 			return isPlayedLevel1;
 		case 2:
 			return isPlayedLevel2;
+		case 3:
+			return isPlayedLevel3;
+		case 4:
+			return isPlayedLevel4;
 		default:
 			// TODO
 		}
@@ -128,13 +204,13 @@ public class ChordLibrary {
 	}
 
 	public String getMedalText(int medal) {
-		String text = "Keine Medallie";
+		String text = "No Medal";
 		switch (medal) {
 		case 1:
 			text = "Bronze";
 			break;
 		case 2:
-			text = "Silber";
+			text = "Silver";
 			break;
 		case 3:
 			text = "Gold";
