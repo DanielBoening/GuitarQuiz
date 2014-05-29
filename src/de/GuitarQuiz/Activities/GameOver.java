@@ -1,7 +1,9 @@
 package de.GuitarQuiz.Activities;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
 import android.widget.ProgressBar;
@@ -74,10 +76,10 @@ public class GameOver extends Activity {
 		ViewFalseAnswers.setText("Falsche Antworten: "+falseAnswers);
 		ViewLevel.setText("Level "+level);
 		if(newHighScore){
-			ViewGameOver.setText("Neuer High Score!");
+			ViewGameOver.setText("New High Score!");
 		}
 		else{
-			ViewGameOver.setText("Spiel zu Ende");
+			ViewGameOver.setText("Game Over");
 		}
 		int medal = chordsLibrary.getMedal(level, rightAnswers);
 		String medalText = chordsLibrary.getMedalText(medal);
@@ -113,6 +115,11 @@ public class GameOver extends Activity {
 		int userRightAnswers = userData.getOverAllHighscore();
 		double progress = (userRightAnswers * 100) / allChords;
 		return (int) progress;
+	}
+	
+	public void newGame(View v) {
+		Intent myIntent = new Intent(GameOver.this, MenuSelect.class);
+		GameOver.this.startActivity(myIntent);
 	}
 
 }

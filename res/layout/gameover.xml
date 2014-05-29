@@ -15,16 +15,6 @@
         android:textAppearance="?android:attr/textAppearanceMedium" />
 
     <TextView
-        android:id="@+id/GO_medal"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginBottom="50dp"
-        android:text="Medallie"
-        android:textAppearance="?android:attr/textAppearanceLarge" />
-
-    <TextView
         android:id="@+id/GO_rightAnswers"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -69,5 +59,25 @@
         android:layout_below="@+id/GO_GameOver"
         android:layout_centerHorizontal="true"
         android:text="Level" />
+
+    <TextView
+        android:id="@+id/GO_medal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/GO_falseAnswers"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="71dp"
+        android:text="Medallie"
+        android:textAppearance="?android:attr/textAppearanceLarge" />
+
+            <Button
+                android:id="@+id/newGame"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/GO_medal"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="24dp"
+                android:background="@drawable/newgame"
+                android:onClick="newGame" />
 
 </RelativeLayout>
