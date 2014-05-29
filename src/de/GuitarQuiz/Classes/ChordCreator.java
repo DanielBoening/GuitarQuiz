@@ -6,6 +6,7 @@ import android.view.View.MeasureSpec;
 import android.view.ViewTreeObserver.OnGlobalLayoutListener;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.MusikMonksSolution.guitarquiz.R;
@@ -80,6 +81,7 @@ public class ChordCreator {
 		placeImage(R.id.quiz_finger2, chord.getFingerPoints()[1]);
 		placeImage(R.id.quiz_finger3, chord.getFingerPoints()[2]);
 		placeImage(R.id.quiz_finger4, chord.getFingerPoints()[3]);
+		setupTextViews(chord);
 //		ImageView finger1 = (ImageView) activity.findViewById(R.id.quiz_finger1);
 //		RelativeLayout.LayoutParams finger1Params= (RelativeLayout.LayoutParams) finger1.getLayoutParams();
 //		Tuple finger1Position = getImagePosition(28);
@@ -93,6 +95,23 @@ public class ChordCreator {
 	}
 	
 	
+	private void setupTextViews(Chord chord2) {
+		TextView[] strings = new TextView[6];
+		strings[0] = (TextView) activity.findViewById(R.id.Quiz_IsPlayed1);
+		strings[1] = (TextView) activity.findViewById(R.id.Quiz_IsPlayed2);
+		strings[2] = (TextView) activity.findViewById(R.id.Quiz_IsPlayed3);
+		strings[3] = (TextView) activity.findViewById(R.id.Quiz_IsPlayed4);
+		strings[4] = (TextView) activity.findViewById(R.id.Quiz_IsPlayed5);
+		strings[5] = (TextView) activity.findViewById(R.id.Quiz_IsPlayed6);
+		
+		for(int i=0; i<strings.length; i++){
+			String out = chord.getPlayedSign(i);
+			strings[i].setText(out);
+		}
+		
+	}
+
+
 	private void placeImage(int imgID, int i) {
 		ImageView finger1 = (ImageView) activity.findViewById(imgID);
 		finger1.setVisibility(View.VISIBLE);

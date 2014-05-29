@@ -163,6 +163,65 @@
             android:src="@drawable/finger"
             android:visibility="visible" />
 
+        <TextView
+            android:id="@+id/Quiz_IsPlayed1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toLeftOf="@+id/ChordPattern"
+            android:layout_marginTop="3dp"
+            android:text="X"
+            android:textAppearance="?android:attr/textAppearanceMedium" />
+        
+        
+            <TextView
+            android:id="@+id/Quiz_IsPlayed2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toLeftOf="@+id/ChordPattern"
+            android:layout_marginTop="30dp"
+            android:text="X"
+            android:textAppearance="?android:attr/textAppearanceMedium" />
+                
+                
+           <TextView
+            android:id="@+id/Quiz_IsPlayed3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toLeftOf="@+id/ChordPattern"
+            android:layout_marginTop="56dp"
+            android:text="X"
+            android:textAppearance="?android:attr/textAppearanceMedium" />
+           
+           
+             <TextView
+            android:id="@+id/Quiz_IsPlayed4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toLeftOf="@+id/ChordPattern"
+            android:layout_marginTop="83dp"
+            android:text="X"
+            android:textAppearance="?android:attr/textAppearanceMedium" />
+             
+             <TextView
+            android:id="@+id/Quiz_IsPlayed5"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toLeftOf="@+id/ChordPattern"
+            android:layout_marginTop="108dp"
+            android:text="X"
+            android:textAppearance="?android:attr/textAppearanceMedium" />
+             
+             
+            <TextView
+            android:id="@+id/Quiz_IsPlayed6"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toLeftOf="@+id/ChordPattern"
+            android:layout_marginTop="134dp"
+            android:text="X"
+            android:textAppearance="?android:attr/textAppearanceMedium" />
+        
+                
 
     </RelativeLayout>
 
