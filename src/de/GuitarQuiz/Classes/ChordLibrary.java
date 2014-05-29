@@ -129,7 +129,7 @@ private static int[][] fingersLevel4 = {
 
 	public static ArrayList<Chord> getAllChords() {
 		ArrayList<Chord> chords = new ArrayList<Chord>();
-		for (int i = 1; i <= 2; i++)
+		for (int i = 1; i <= 4; i++)
 			chords.addAll(createChordList(i));
 		return chords;
 	}

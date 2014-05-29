@@ -332,16 +332,20 @@ public class Quiz extends Activity {
 
 			// Chord randomChord = chords
 			// .get((new Random()).nextInt(chords.size()));
-
-			Chord randomChord = chords.get((new Random()).nextInt(inagameChords
-					.size()));
-
+			Chord randomChord = null;
+			if (infiniteMode) {
+				randomChord = chords.get((new Random()).nextInt(inagameChords
+						.size()));
+			} else {
+				randomChord = inagameChords.get((new Random())
+						.nextInt(inagameChords.size()));
+			}
 			inagameChords.remove(randomChord);
 			rightChordItem = randomChord;
-			// Toast.makeText(getApplicationContext(),
-			// "Neuer Accord "+rightChordItem.getName()+" wird geprintet",
-			// Toast.LENGTH_LONG)
-			// .show();
+//			 Toast.makeText(getApplicationContext(),
+//			 "Accord "+rightChordItem.getName()+" gelöscht",
+//			 Toast.LENGTH_LONG)
+//			 .show();
 			// creator = new ChordCreator(this);
 			// creator.setChord(randomChord);
 			printAnswersToButton(randomChord, (ArrayList<Chord>) chords.clone());
