@@ -243,7 +243,7 @@ private static int[][] fingersLevel4 = {
 
 
 public int getMedalImageSmall(int medal) {
-	int image = R.drawable.infinitemode;
+	int image = R.drawable.level;
 	switch (medal) {
 	case 1: // Bronze
 		image = R.drawable.bronzemedal;
