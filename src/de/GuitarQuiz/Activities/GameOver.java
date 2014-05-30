@@ -86,7 +86,6 @@ public class GameOver extends Activity {
 		int medal = chordsLibrary.getMedal(level, rightAnswers);
 		int medalImage = chordsLibrary.getMedalImage(medal);
 		ViewMedal.setImageResource(medalImage);
-		MedalText.setText(chordsLibrary.getMedalText(medal));
 		
 	}
 
@@ -97,7 +96,6 @@ public class GameOver extends Activity {
 		ViewLevel = (TextView) findViewById(R.id.GO_Level);
 		ViewGameOver = (TextView) findViewById(R.id.GO_GameOver);
 		ViewMedal = (ImageView) findViewById(R.id.GameOver_MedalView);
-		MedalText = (TextView) findViewById(R.id.GameOver_medalText);
 		
 	}
 
