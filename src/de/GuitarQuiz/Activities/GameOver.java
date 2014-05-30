@@ -28,8 +28,8 @@ public class GameOver extends Activity {
 	TextView ViewFalseAnswers;
 	TextView ViewLevel;
 	TextView ViewGameOver;
-	TextView MedalText;
 	ImageView ViewMedal;
+	ImageView GameOverFont;
 
 
 
@@ -73,15 +73,16 @@ public class GameOver extends Activity {
 
 	private void printProgress() {
 		int progress = calculateProgress();
+		
+		
 		setProgressBar(progress);
 		ViewRightAnswers.setText("Right Answers: "+rightAnswers);
 		ViewFalseAnswers.setText("False Answers: "+falseAnswers);
 		ViewLevel.setText("Level "+level);
+		
 		if(newHighScore){
 			ViewGameOver.setText("New High Score!");
-		}
-		else{
-			ViewGameOver.setText("Game Over");
+			// GameOverFont.setImageResource(R.drawable.newhighscorefont); - warum klappt das nicht?
 		}
 		int medal = chordsLibrary.getMedal(level, rightAnswers);
 		int medalImage = chordsLibrary.getMedalImage(medal);
@@ -96,7 +97,6 @@ public class GameOver extends Activity {
 		ViewLevel = (TextView) findViewById(R.id.GO_Level);
 		ViewGameOver = (TextView) findViewById(R.id.GO_GameOver);
 		ViewMedal = (ImageView) findViewById(R.id.GameOver_MedalView);
-		
 	}
 
 	private void setProgressBar(int progress) {

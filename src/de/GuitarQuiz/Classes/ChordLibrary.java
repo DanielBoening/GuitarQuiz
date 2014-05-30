@@ -204,6 +204,8 @@ private static int[][] fingersLevel4 = {
 
 		return medal;
 	}
+	
+	
 
 	public String getMedalText(int medal) {
 		String text = "No Medal";

@@ -39,9 +39,18 @@
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="21dp"
-        android:text="Spiel zu Ende"
+        android:text=""
         android:textAppearance="?android:attr/textAppearanceLarge" />
 
+    <ImageView
+                android:id="@+id/GameOver_GameOver"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentTop="true"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="15dp"
+                android:src="@drawable/gameoverfont" />
+    
     <TextView
         android:id="@+id/ProgressView"
         android:layout_width="wrap_content"
